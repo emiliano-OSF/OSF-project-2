@@ -133,6 +133,7 @@ header{
 
     .headernav__option--userfixed{
         position: fixed;
+        z-index: 100;
         bottom: 0px;
         left: 0px;
         margin: 0px;
@@ -146,7 +147,6 @@ header{
             width: 24px;    
             margin: 0px 18px;
             cursor: pointer;
-            
         }
     }
 }
@@ -168,7 +168,6 @@ header{
         color: tomato
     }
 }
-
 
 .login-register{
     display: none;
@@ -205,98 +204,57 @@ header{
     ol{
         margin-bottom: 0;
     }
+}
+.carousel-caption{
+    left: 5%;
+    right: 5%;
+    top: 1%;
+}
 
-    .carousel-caption{
-        left: 5%;
-        right: 5%;
-        top: 1%;
+.slide__info{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    color: white;
+    text-align: left;
+
+    img{
+        width: 100px
     }
 
-    .slide__info{
-        position: relative;
-        left: 0;
-        width: 200px;
-        padding: 0px;
-        color: white;
-        text-align: left;
+    h4{
+        margin-bottom: 20px;
+        display: block;
+        width: 100%;
+        font-size: 19px;
+        font-weight: bold;
+    }
 
-        h4{
-            font-size: 19px;
-            font-weight: bold;
-        }
+    p{
+        display: block;
+        width: 100%;
+        font-size: 15px;
+    }
 
-        p{
-            font-size: 13px;
-        }
-
-        button{
-            border: 2px solid #ffffff;
-            background: transparent;
-            border-radius: 20px;
-            padding: 3px 20px;
-            color: #ffffff;
-            
-        }
+    button{
+        margin-top: 20px;
+        border: 2px solid #ffffff93;
+        background: transparent;
+        border-radius: 20px;
+        padding: 5px 30px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #ffffff;
+        outline: none;
+        
     }
 }
 
-// .carousel{
-//     position: relative;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     overflow: hidden;
-    
-//     .carousel__items{
-//         position: relative;
-//         width: 271px;
-//         height: 276px;
-//         display: flex;
-//         flex-direction: row;
-//         right: 0px;
-//         margin: 0;
-//         padding: 0;
-
-//         .carousel__item{
-//             height: inherit;
-//             width: inherit;
-//         }
-
-//         img{
-//             display: block;
-//             height: inherit;
-//             width: inherit;
-//         }
-
-//         .slide__info{
-//             position: absolute;
-//             top: 0;
-//             width: 100%;
-//             padding: 20px;
-//             color: white;
-//         }
-//         .slide__prod-info{
-//             position: absolute;
-//             bottom: 0;
-//             width: 100%;
-//             padding: 20px;
-//             color: $darker-color;
-//             text-align: center;
-//             font-size: 14px;
-//             background-color: white;
-//         }
-//     }
-//     .prod-carousel__items{
-//         position: relative;
-//         width: 271px;
-//         height: 276px;
-//         display: flex;
-//         flex-direction: row;
-//         right: 0px;
-//         margin: 0;
-//         padding: 0;
-//     }
-// }
 .carousel__buttons{
     position: relative;
     bottom: 20px;
@@ -323,14 +281,32 @@ header{
 }
 
 .popular-items__container{
-    position: relative;
-    z-index: 1;
     width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    margin: 60px auto 0px auto;
+    padding: 10px;;
     background-color: $darker-color;
-    //padding: 20px 0px;
+    
+    .popular-items__container-wrapper{
+        width: 320px;
+        padding: 0px 10px;
+
+        
+        .slide__price-info{
+            background: white;
+            color: $darker-color;
+            
+            .prod-name{
+                
+            }
+        }
+    }
+
+    ol{
+        margin-bottom: 0;
+    }
 
     h2{
         display: block;
