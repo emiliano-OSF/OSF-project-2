@@ -199,68 +199,104 @@ header{
     position: relative;
     z-index: 1;
     width: 271px;
-    //margin-top: 60px;
     margin: 60px auto 0px auto;
-    padding: 10px;
+    padding: 10px 5px;
 
+    ol{
+        margin-bottom: 0;
+    }
+
+    .carousel-caption{
+        left: 5%;
+        right: 5%;
+        top: 1%;
+    }
+
+    .slide__info{
+        position: relative;
+        left: 0;
+        width: 200px;
+        padding: 0px;
+        color: white;
+        text-align: left;
+
+        h4{
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        p{
+            font-size: 13px;
+        }
+
+        button{
+            border: 2px solid #ffffff;
+            background: transparent;
+            border-radius: 20px;
+            padding: 3px 20px;
+            color: #ffffff;
+            
+        }
+    }
 }
-.carousel{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
+
+// .carousel{
+//     position: relative;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     overflow: hidden;
     
-    .carousel__items{
-        position: relative;
-        width: 271px;
-        height: 276px;
-        display: flex;
-        flex-direction: row;
-        right: 0px;
-        margin: 0;
-        padding: 0;
+//     .carousel__items{
+//         position: relative;
+//         width: 271px;
+//         height: 276px;
+//         display: flex;
+//         flex-direction: row;
+//         right: 0px;
+//         margin: 0;
+//         padding: 0;
 
-        .carousel__item{
-            height: inherit;
-            width: inherit;
-        }
+//         .carousel__item{
+//             height: inherit;
+//             width: inherit;
+//         }
 
-        img{
-            display: block;
-            height: inherit;
-            width: inherit;
-        }
+//         img{
+//             display: block;
+//             height: inherit;
+//             width: inherit;
+//         }
 
-        .slide__info{
-            position: absolute;
-            top: 0;
-            width: 100%;
-            padding: 20px;
-            color: white;
-        }
-        .slide__prod-info{
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: 20px;
-            color: $darker-color;
-            text-align: center;
-            font-size: 14px;
-            background-color: white;
-        }
-    }
-    .prod-carousel__items{
-        position: relative;
-        width: 271px;
-        height: 276px;
-        display: flex;
-        flex-direction: row;
-        right: 0px;
-        margin: 0;
-        padding: 0;
-    }
-}
+//         .slide__info{
+//             position: absolute;
+//             top: 0;
+//             width: 100%;
+//             padding: 20px;
+//             color: white;
+//         }
+//         .slide__prod-info{
+//             position: absolute;
+//             bottom: 0;
+//             width: 100%;
+//             padding: 20px;
+//             color: $darker-color;
+//             text-align: center;
+//             font-size: 14px;
+//             background-color: white;
+//         }
+//     }
+//     .prod-carousel__items{
+//         position: relative;
+//         width: 271px;
+//         height: 276px;
+//         display: flex;
+//         flex-direction: row;
+//         right: 0px;
+//         margin: 0;
+//         padding: 0;
+//     }
+// }
 .carousel__buttons{
     position: relative;
     bottom: 20px;
