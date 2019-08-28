@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+//import useMediaQuery from "@material-ui/core/useMediaQuery";
+
 import logo from "../assets/img/icon-osf.png"
 import logoB from "../assets/img/logo-osf.png";
 import searchIcon from "../assets/img/icons/search.svg";
@@ -6,10 +8,14 @@ import userIcon from "../assets/img/icons/user.svg";
 import wishIcon from "../assets/img/icons/heart.svg";
 import cartIcon from "../assets/img/icons/bag.svg"
 
+// const Call = () =>{
+//     const match = useMediaQuery("min-width: 500px");
+//     return (<a>{match}</a>);
+// }
 
 class Header extends Component {
 
-    state = { showMenu: false };
+    state = { showMenu: false};
 
     togleMenuBtn = () => {
         this.setState({
@@ -26,14 +32,15 @@ class Header extends Component {
         return (
             <header>
                 <div className='logopanel row'>
-                    <div className="logopanel__button col-4">
-                        <a className={`fas ${menuClass}`} id="toggle__nav" onClick={this.togleMenuBtn}></a>
+                    <div className="logopanel__button col-3">
+                        <a className={`fas ${menuClass}`} onClick={this.togleMenuBtn}></a>
                     </div>
-                    <div className="logopanel__homelogo co-7">
+                    <div className="logopanel__homelogo col-12">
                         <img src={logo} alt="OSF - Home" className="img-320" />
                         <img src={logoB} alt="OSF - Home" className="img-1280" />
                     </div>
                 </div>
+
                 <nav className="headernav row" >
                     <ul className="headernav__option col-12" style={menuShow}>
                         <li>
@@ -127,7 +134,6 @@ class Header extends Component {
                             </div>
                         </li>
 
-
                     </ul>
                     <div className="headernav__option--lang col-3">
                         <ul>
@@ -135,21 +141,21 @@ class Header extends Component {
                             <li>$US</li>
                         </ul>
                     </div>
-                    <ul className="headernav__option--userfixed col-12">
-                        <li>
-                            <img src={searchIcon} />
-                        </li>
-                        <li>
-                            <img src={userIcon} />
-                        </li>
-                        <li>
-                            <img src={wishIcon} />
-                        </li>
-                        <li>
-                            <img src={cartIcon} />
-                        </li>
-                    </ul>
                 </nav>
+                <ul className="headernav__option--userfixed col-12">
+                    <li>
+                        <img src={searchIcon} />
+                    </li>
+                    <li>
+                        <img src={userIcon} />
+                    </li>
+                    <li>
+                        <img src={wishIcon} />
+                    </li>
+                    <li>
+                        <img src={cartIcon} />
+                    </li>
+                </ul>
             </header>
         )
     }

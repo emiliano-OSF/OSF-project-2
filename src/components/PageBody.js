@@ -99,7 +99,7 @@ class PageBody extends Component {
                             <Carousel.Item>
                                 <img
                                     className="d-block w-100"
-                                    src={PopItem}
+                                    src={ require("../assets/img/home/pop-item.png")} // solução pra pegar as imagens de maneira dinamica
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
@@ -146,13 +146,13 @@ class PageBody extends Component {
                         <h2>Banner OSF Theme</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
-                    <img src={BannerOSF} />
+                    <img src={BannerOSF} alt="Banner OSF" />
                 </section>
 
                 <section className="advantages">
                     <div className="advantages__panel">
                         <div className="advantages__icon">
-                            <img src={DeliveryPack} />
+                            <img src={DeliveryPack} alt="Delivery Package"/>
                         </div>
                         <div className="advantages__info">
                             <h4>Focus</h4>
@@ -161,7 +161,7 @@ class PageBody extends Component {
                     </div>
                     <div className="advantages__panel reversed">
                         <div className="advantages__icon">
-                            <img src={Arrows} />
+                            <img src={Arrows} alt="Triangular Arrows"/>
                         </div>
                         <div className="advantages__info">
                             <h4>Method</h4>
@@ -170,7 +170,7 @@ class PageBody extends Component {
                     </div>
                     <div className="advantages__panel reversed">
                         <div className="advantages__icon">
-                            <img src={Clipboard} />
+                            <img src={Clipboard} alt="Clipboard" />
                         </div>
                         <div className="advantages__info">
                             <h4>Knowledge</h4>

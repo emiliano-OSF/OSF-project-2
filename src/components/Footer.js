@@ -35,18 +35,16 @@ class Footer extends Component {
                             <a className="footer-category__op" href="./pages/not-found.html">Flowers & Plants</a>
                             <a className="footer-category__op" href="./pages/not-found.html">Food</a>
                         </div>
+                    </div>
+                    <div className="footer__menu--op">
+                        <div className="footer-category">
+                            <span className="footer-category">About <span className="fas fa-caret-down"></span></span>
+                            <a className="footer-category__op" href="./pages/not-found.html">About us</a>
+                            <a className="footer-category__op" href="./pages/not-found.html">Delivery</a>
+                            <a className="footer-category__op" href="./pages/not-found.html">Testmonials</a>
+                            <a className="footer-category__op" href="./pages/not-found.html">Contact</a>
 
-                        <div className="footer__menu--op">
-                            <div className="footer-category">
-                                <span className="footer-category">About <span className="fas fa-caret-down"></span></span>
-                                <a className="footer-category__op" href="./pages/not-found.html">About us</a>
-                                <a className="footer-category__op" href="./pages/not-found.html">Delivery</a>
-                                <a className="footer-category__op" href="./pages/not-found.html">Testmonials</a>
-                                <a className="footer-category__op" href="./pages/not-found.html">Contact</a>
-
-                            </div>
                         </div>
-
                     </div>
                 </div>
 
