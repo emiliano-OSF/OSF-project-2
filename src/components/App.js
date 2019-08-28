@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import PageBody from './PageBody';
+import Footer from './Footer'
 
 
 
@@ -10,6 +11,7 @@ class App extends Component {
             <div className="app" >
                 <Header/>
                 <PageBody/>
+                <Footer/>
             </div>
         )
     }
