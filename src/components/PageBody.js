@@ -12,13 +12,17 @@ class PageBody extends Component {
     render() {
         return ( //Abaixo implementar a entrada de produtos de maneira dinamica via requisição
             <div className="wrapper">
-
-                <section className="cloud-solution__container" >
-                    <Carousel controls={false}>
+                <section className="cloud-solution__container row" >
+                    <Carousel className="col-9" controls={false}>
                         <Carousel.Item>
                             <img
-                                className="d-block w-100"
+                                className=" w-100 prod-img__320"
                                 src={ProdPhoto}
+                                alt="First slide"
+                            />
+                            <img
+                                className="w-100 prod-img__768"
+                                src={require("../assets/img/home/768/lady-full.png")}
                                 alt="First slide"
                             />
                             <Carousel.Caption>
@@ -37,9 +41,14 @@ class PageBody extends Component {
 
                         <Carousel.Item>
                             <img
-                                className="d-block w-100"
+                                className=" w-100 prod-img__320"
                                 src={ProdPhoto}
-                                alt="Third slide"
+                                alt="First slide"
+                            />
+                            <img
+                                className="w-100 prod-img__768"
+                                src={require("../assets/img/home/768/lady-full.png")}
+                                alt="First slide"
                             />
                             <Carousel.Caption>
                                 <div className="slide__info">
@@ -55,9 +64,14 @@ class PageBody extends Component {
 
                         <Carousel.Item>
                             <img
-                                className="d-block w-100"
+                                className=" w-100 prod-img__320"
                                 src={ProdPhoto}
-                                alt="Third slide"
+                                alt="First slide"
+                            />
+                            <img
+                                className="w-100 prod-img__768"
+                                src={require("../assets/img/home/768/lady-full.png")}
+                                alt="First slide"
                             />
                             <Carousel.Caption>
                                 <div className="slide__info">
@@ -72,9 +86,14 @@ class PageBody extends Component {
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
-                                className="d-block w-100"
+                                className=" w-100 prod-img__320"
                                 src={ProdPhoto}
-                                alt="Third slide"
+                                alt="First slide"
+                            />
+                            <img
+                                className="w-100 prod-img__768"
+                                src={require("../assets/img/home/768/lady-full.png")}
+                                alt="First slide"
                             />
                             <Carousel.Caption>
                                 <div className="slide__info">
@@ -89,17 +108,30 @@ class PageBody extends Component {
                         </Carousel.Item>
 
                     </Carousel>
+                    
+                    <div className="promotion-panel col-3">
+                        <div className="sale-50">
+                            <img src={require("../assets/img/home/768/sale-50.png")}/>
+                            <span className="sale-50__offer">50%</span>                           
+                        </div>
+                        <div className="social-facebook">
+                            <h4>Follow us on Facebook</h4>
+                            <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
+                            <button><span className="fab fa-facebook-f"></span> Follow</button>
+                        </div>
 
+
+                    </div>
                 </section>
 
-                <section className="popular-items__container">
+                <section className="popular-items-320__container">
                     <h2>Popular Items</h2>
                     <div className="popular-items__container-wrapper">
                         <Carousel controls={false}>
                             <Carousel.Item>
                                 <img
                                     className="d-block w-100"
-                                    src={ require("../assets/img/home/pop-item.png")} // solução pra pegar as imagens de maneira dinamica
+                                    src={require("../assets/img/home/pop-item.png")} // solução pra pegar as imagens de maneira dinamica
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
@@ -152,7 +184,7 @@ class PageBody extends Component {
                 <section className="advantages">
                     <div className="advantages__panel">
                         <div className="advantages__icon">
-                            <img src={DeliveryPack} alt="Delivery Package"/>
+                            <img src={DeliveryPack} alt="Delivery Package" />
                         </div>
                         <div className="advantages__info">
                             <h4>Focus</h4>
@@ -161,7 +193,7 @@ class PageBody extends Component {
                     </div>
                     <div className="advantages__panel reversed">
                         <div className="advantages__icon">
-                            <img src={Arrows} alt="Triangular Arrows"/>
+                            <img src={Arrows} alt="Triangular Arrows" />
                         </div>
                         <div className="advantages__info">
                             <h4>Method</h4>

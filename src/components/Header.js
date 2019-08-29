@@ -15,7 +15,7 @@ import cartIcon from "../assets/img/icons/bag.svg"
 
 class Header extends Component {
 
-    state = { showMenu: false};
+    state = { showMenu: false };
 
     togleMenuBtn = () => {
         this.setState({
@@ -25,9 +25,7 @@ class Header extends Component {
 
     render() {
         const menuClass = this.state.showMenu ? " fa-times" : "fa-bars";
-        const menuShow = {
-            left: this.state.showMenu ? "0%" : "-100%"
-        }
+        const menuShow = this.state.showMenu ? "headernav__ellement-show" : "";
 
         return (
             <header>
@@ -35,14 +33,22 @@ class Header extends Component {
                     <div className="logopanel__button col-3">
                         <a className={`fas ${menuClass}`} onClick={this.togleMenuBtn}></a>
                     </div>
-                    <div className="logopanel__homelogo col-12">
+                    <div className={`logopanel__homelogo col-7`}>
                         <img src={logo} alt="OSF - Home" className="img-320" />
                         <img src={logoB} alt="OSF - Home" className="img-1280" />
                     </div>
                 </div>
 
+                <nav className="headernav__768 row">
+                    <ul className="headernav__786--option">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </nav>
+
                 <nav className="headernav row" >
-                    <ul className="headernav__option col-12" style={menuShow}>
+                    <ul className={`headernav__option col-12 ${menuShow}`} >
                         <li>
                             <span className="nav-menu__title">
                                 <a>SERVICES</a>
@@ -135,6 +141,7 @@ class Header extends Component {
                         </li>
 
                     </ul>
+
                     <div className="headernav__option--lang col-3">
                         <ul>
                             <li>ENG</li>
