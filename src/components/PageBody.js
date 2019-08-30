@@ -6,10 +6,51 @@ import BannerOSF from "../assets/img/home/banner-osf.png";
 import DeliveryPack from "../assets/img/icons/delivery-package.svg";
 import Arrows from "../assets/img/icons/triangular-arrows.svg";
 import Clipboard from "../assets/img/icons/clipboard.svg";
+import Axios from 'axios';
 
 class PageBody extends Component {
 
+    state = {
+        products: [],
+        isLoading: true,
+        isError: false
+    }
+
+    async componentDidMount() {
+        // await Axios.get("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
+        // .then(res=>{
+        //     this.setState({products: res.data});
+        // })
+
+        try {
+            // const res = await Promise.all([
+            //     //Axios.get("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
+            //     fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
+            //     .then()
+            // ])
+
+            fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
+                .then(res => res.json())
+                .then(data => {
+                    this.setState({
+                        products: data,
+                        isLoading: false
+                    })
+                })
+            //this.setState({products: res, isLoading: false})
+
+        } catch (err) {
+            this.setState({ isError: true, isLoading: false })
+        }
+
+    }
+
     render() {
+
+        if (this.state.isLoading) {
+            return null
+        }
+        //console.log(this.state.products[0])
         return ( //Abaixo implementar a entrada de produtos de maneira dinamica via requisição
             <div className="wrapper">
                 <section className="cloud-solution__container row" >
@@ -108,11 +149,11 @@ class PageBody extends Component {
                         </Carousel.Item>
 
                     </Carousel>
-                    
+
                     <div className="promotion-panel col-3">
                         <div className="sale-50">
-                            <img src={require("../assets/img/home/768/sale-50.png")}/>
-                            <span className="sale-50__offer">50%</span>                           
+                            <img src={require("../assets/img/home/768/sale-50.png")} />
+                            <span className="sale-50__offer">50%</span>
                         </div>
                         <div className="social-facebook">
                             <h4>Follow us on Facebook</h4>
@@ -126,7 +167,9 @@ class PageBody extends Component {
 
                 <section className="popular-items-320__container">
                     <h2>Popular Items</h2>
+
                     <div className="popular-items__container-wrapper">
+                        {this.state}
                         <Carousel controls={false}>
                             <Carousel.Item>
                                 <img
@@ -170,6 +213,33 @@ class PageBody extends Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                         </Carousel>
+                    </div>
+                </section>
+
+                <section className="popular-items-768__container">
+                    <h2>Popular items</h2>
+                    <div className="popular-items-768__container-wrapper">
+                        {this.state.products.map((product) => {
+                            return (
+                                <div className="popular-items-768__prod-tile">
+                                    <img src={require(`../assets/img/products/prod-${product.id}.png`)}/>
+                                    <div className="prod-info">
+                                        <p>{product.name}</p>
+                                        <span>{product.price}</span>
+                                    </div>
+                                </div>
+                            )
+                        })}
+                        {/* <div
+                            className="popular-items-768__prod-tile">
+                            <img src={require('../assets//img/products/prod-1.png')} />
+                            <div className="prod-info">
+
+                                <p>Kristina Dam Oak Table With White Marble Top</p>
+                                <span></span>
+
+                            </div>
+                        </div> */}
                     </div>
                 </section>
 
