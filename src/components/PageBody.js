@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import ProdPhoto from "../assets/img/home/lady_01.png";
-import PopItem from "../assets/img/home/pop-item.png";
 import BannerOSF from "../assets/img/home/banner-osf.png";
 import DeliveryPack from "../assets/img/icons/delivery-package.svg";
 import Arrows from "../assets/img/icons/triangular-arrows.svg";
 import Clipboard from "../assets/img/icons/clipboard.svg";
-import Axios from 'axios';
+
 
 class PageBody extends Component {
 
@@ -17,17 +16,7 @@ class PageBody extends Component {
     }
 
     async componentDidMount() {
-        // await Axios.get("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
-        // .then(res=>{
-        //     this.setState({products: res.data});
-        // })
-
         try {
-            // const res = await Promise.all([
-            //     //Axios.get("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
-            //     fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
-            //     .then()
-            // ])
 
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
                 .then(res => res.json())
@@ -37,7 +26,6 @@ class PageBody extends Component {
                         isLoading: false
                     })
                 })
-            //this.setState({products: res, isLoading: false})
 
         } catch (err) {
             this.setState({ isError: true, isLoading: false })
@@ -46,12 +34,10 @@ class PageBody extends Component {
     }
 
     render() {
-
         if (this.state.isLoading) {
             return null
         }
-        //console.log(this.state.products[0])
-        return ( //Abaixo implementar a entrada de produtos de maneira dinamica via requisição
+        return (
             <div className="wrapper">
                 <section className="cloud-solution__container row" >
                     <Carousel className="col-9" controls={false}>
@@ -160,8 +146,6 @@ class PageBody extends Component {
                             <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
                             <button><span className="fab fa-facebook-f"></span> Follow</button>
                         </div>
-
-
                     </div>
                 </section>
 
@@ -169,49 +153,24 @@ class PageBody extends Component {
                     <h2>Popular Items</h2>
 
                     <div className="popular-items__container-wrapper">
-                        {this.state}
                         <Carousel controls={false}>
-                            <Carousel.Item>
-                                <img
-                                    className="d-block w-100"
-                                    src={require("../assets/img/home/pop-item.png")} // solução pra pegar as imagens de maneira dinamica
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <div className="slide__price-info">
-                                        <h4 className="slide__prod-name">Kristina Dam Oak Table With White Marble Top </h4>
-                                        <span className="slide__prod-price">$ {799.55}</span>
-                                    </div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                            {this.state.products.map((product) => {
+                                return (
+                                    <Carousel.Item>
+                                        <img
+                                            className="d-block w-100"
+                                            src={require(`../assets/img/products/prod-${product.id}.png`)}
+                                            alt={product.name}
+                                        />
+                                        <Carousel.Caption>
+                                            <div className="slide__price-info">
+                                                <h4 className="slide__prod-name"> {product.name}</h4>
+                                                <span className="slide__prod-price">{product.price}</span>
+                                            </div>
+                                        </Carousel.Caption>
+                                    </Carousel.Item>)
+                            })}
 
-                            <Carousel.Item>
-                                <img
-                                    className="d-block w-100"
-                                    src={PopItem}
-                                    alt="Third slide"
-                                />
-                                <Carousel.Caption>
-                                    <div className="slide__price-info">
-                                        <h4 className="slide__prod-name">Kristina Dam Oak Table With White Marble Top</h4>
-                                        <span className="slide__prod-price">$ {799.55}</span>
-                                    </div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-
-                            <Carousel.Item>
-                                <img
-                                    className="d-block w-100"
-                                    src={PopItem}
-                                    alt="Third slide"
-                                />
-                                <Carousel.Caption>
-                                    <div className="slide__price-info">
-                                        <h4 className="slide__prod-name">Kristina Dam Oak Table With White Marble Top </h4>
-                                        <span className="slide__prod-price">$ {799.55}</span>
-                                    </div>
-                                </Carousel.Caption>
-                            </Carousel.Item>
                         </Carousel>
                     </div>
                 </section>
@@ -222,7 +181,7 @@ class PageBody extends Component {
                         {this.state.products.map((product) => {
                             return (
                                 <div className="popular-items-768__prod-tile">
-                                    <img src={require(`../assets/img/products/prod-${product.id}.png`)}/>
+                                    <img src={require(`../assets/img/products/prod-${product.id}.png`)} alt={product.name} />
                                     <div className="prod-info">
                                         <p>{product.name}</p>
                                         <span>{product.price}</span>
@@ -230,16 +189,6 @@ class PageBody extends Component {
                                 </div>
                             )
                         })}
-                        {/* <div
-                            className="popular-items-768__prod-tile">
-                            <img src={require('../assets//img/products/prod-1.png')} />
-                            <div className="prod-info">
-
-                                <p>Kristina Dam Oak Table With White Marble Top</p>
-                                <span></span>
-
-                            </div>
-                        </div> */}
                     </div>
                 </section>
 
@@ -248,7 +197,7 @@ class PageBody extends Component {
                         <h2>Banner OSF Theme</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
-                    <img src={BannerOSF} alt="Banner OSF" />
+                    <img src={require("../assets/img/home/banner-osf.png")} alt="Banner OSF" />
                 </section>
 
                 <section className="advantages">

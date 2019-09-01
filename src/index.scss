@@ -178,7 +178,6 @@ header{
             flex: 0 0 100%;
         }
     }
-
 }
 
 .login-register{
@@ -208,8 +207,8 @@ header{
 .cloud-solution__container{
     position: relative;
     z-index: 1;
-    width: 300px;
-    margin: 60px auto 0px auto;
+    width: 95%;
+    margin: 75px auto 0px auto;
     padding: 10px 5px;
 
     ol{
@@ -277,35 +276,9 @@ header{
     }
 }
 
-
-// .carousel__buttons{
-//     position: relative;
-//     bottom: 20px;
-//     width: 100px;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-around;
-//     align-items: center;
-
-//     .carousel__btn{
-//         width: 10px;
-//         height: 10px;
-//         background-color: rgba(0, 0, 0, 0.5);
-//         border-radius: 50%;
-//         cursor: pointer;
-//     }
-
-//     .carousel__btn--selected{
-//         width: 15px;
-//         height: 15px;
-//         border: 3px solid white;
-//         background-color: rgb(192, 192, 192);
-//     }
-// }
-
 .popular-items-320__container{
     width: 100%;
-    height: 400px;
+    height: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -313,7 +286,7 @@ header{
     padding: 10px;;
     background-color: $darker-color;
     .popular-items__container-wrapper{
-        width: 320px;
+        width: 95%;
         padding: 0px 10px;
 
         .carousel-indicators{
@@ -322,13 +295,13 @@ header{
 
         .slide__price-info{
             position: absolute;
-            width: 300px;
+            width: 90vw;
             height: 40%;
             left: 50%;
             right: 50%;
             transform: translate(-50%);
             bottom: -8%;
-            padding: 10px 0px;
+            padding: 10px 30px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -358,6 +331,10 @@ header{
     }
 }
 
+.popular-items-768__container{
+    display: none;
+}
+
 @media only screen and (min-width: 768px){
     header{
         height: auto;
@@ -371,7 +348,6 @@ header{
     }
     .cloud-solution__container{
         width: 90%;
-
         .col-9{
             max-width: 75%;
             flex: 0 0 75%;
@@ -467,13 +443,15 @@ header{
     }
 
     .popular-items-768__container{
-
-    }
+        display: block;
+        
+    }   
 }
 
 .banner-osf{
-    height: fit-content;
+    position: relative;
     width: 100%;
+    height: 50vw;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -482,9 +460,9 @@ header{
     color: white;
 
     .banner-osf__info{
-        height: 0;
-        position: relative;
-        top: 5%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -501,6 +479,9 @@ header{
             font-size: 14px;
             text-align: center;
         }
+    }
+    img{
+        height: 100%;
     }
 }
 
