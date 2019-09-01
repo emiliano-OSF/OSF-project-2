@@ -12,7 +12,8 @@ class PageBody extends Component {
     state = {
         products: [],
         isLoading: true,
-        isError: false
+        isError: false,
+        loadProd: true
     }
 
     async componentDidMount() {
@@ -33,10 +34,27 @@ class PageBody extends Component {
 
     }
 
+    loadMoreProd = () => {
+        //console.log("carregou");
+        let lista = this.state.products;
+        lista = [...lista, ...lista];
+        try {
+
+            this.setState({
+                products: lista,
+                loadProd: false
+            })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     render() {
         if (this.state.isLoading) {
             return null
         }
+        console.log(...this.state.products)
         return (
             <div className="wrapper">
                 <section className="cloud-solution__container row" >
@@ -156,7 +174,7 @@ class PageBody extends Component {
                         <Carousel controls={false}>
                             {this.state.products.map((product) => {
                                 return (
-                                    <Carousel.Item>
+                                    <Carousel.Item >
                                         <img
                                             className="d-block w-100"
                                             src={require(`../assets/img/products/prod-${product.id}.png`)}
@@ -190,6 +208,8 @@ class PageBody extends Component {
                             )
                         })}
                     </div>
+                    {this.state.loadProd? <button onClick={this.loadMoreProd}>LOAD MORE <span className="fas fa-redo" ></span></button>: null}
+                    
                 </section>
 
                 <section className="banner-osf">
