@@ -48,18 +48,6 @@ body{
     padding: 0px 0px 70px 0px;
     box-sizing: border-box;
 }
-/* media queries ------------------------*/
-
-@media only screen and (min-width: 321px){
-    
-    .cloud-solution__container{
-        
-        .col-9{
-            max-width: 100%;
-            flex: 0 0 100%;
-        }
-    }
-}
 
 .login-register{
     display: none;

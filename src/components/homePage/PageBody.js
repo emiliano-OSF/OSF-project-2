@@ -3,11 +3,11 @@ import Carousel from 'react-bootstrap/Carousel'
 import SyncLoader from "react-spinners/SyncLoader"
 import "./PageBody.scss"
 
-import ProdPhoto from "../assets/img/home/lady_01.png";
-import BannerOSF from "../assets/img/home/banner-osf.png";
-import DeliveryPack from "../assets/img/icons/delivery-package.svg";
-import Arrows from "../assets/img/icons/triangular-arrows.svg";
-import Clipboard from "../assets/img/icons/clipboard.svg";
+//import ProdPhoto from "../assets/img/home/768/lady-full.png";
+import ProdPhoto from "../../assets/img/home/768/lady-full.png";
+import DeliveryPack from "../../assets/img/icons/delivery-package.svg";
+import Arrows from "../../assets/img/icons/triangular-arrows.svg";
+import Clipboard from "../../assets/img/icons/clipboard.svg";
 
 
 class PageBody extends Component {
@@ -35,12 +35,12 @@ class PageBody extends Component {
         }
     }
 
-    loadProdutcs() {
+    loadPopProdutcs() {
         return (
             this.state.products.map((product) => {
                 return (
                     <div className="popular-items-768__prod-tile">
-                        <img src={require(`../assets/img/products/prod-${product.id}.png`)} alt={product.name} />
+                        <img src={require(`../../assets/img/products/prod-${product.id}.png`)} alt={product.name} />
                         <div className="prod-info">
                             <p>{product.name}</p>
                             <span>{product.price}</span>
@@ -71,7 +71,7 @@ class PageBody extends Component {
         return (
             <div className="wrapper">
                 <section className="cloud-solution__container row" >
-                    <Carousel className="col-9" controls={false}>
+                    <Carousel className="" controls={false}>
                         <Carousel.Item>
                             <img
                                 className=" w-100 prod-img__320"
@@ -80,32 +80,7 @@ class PageBody extends Component {
                             />
                             <img
                                 className="w-100 prod-img__768"
-                                src={require("../assets/img/home/768/lady-full.png")}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                {/* <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> */}
-                                <div className="slide__info">
-                                    <h4>Control and manage any device with cloud solutions </h4>
-                                    <p>
-                                        Improve business peformanceand the user experience with the right mix of IoT
-                                        technology and processes.
-                                </p>
-                                    <button>VIEW MORE</button>
-                                </div>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-
-                        <Carousel.Item>
-                            <img
-                                className=" w-100 prod-img__320"
-                                src={ProdPhoto}
-                                alt="First slide"
-                            />
-                            <img
-                                className="w-100 prod-img__768"
-                                src={require("../assets/img/home/768/lady-full.png")}
+                                src={require("../../assets/img/home/768/lady-full.png")}
                                 alt="First slide"
                             />
                             <Carousel.Caption>
@@ -128,7 +103,7 @@ class PageBody extends Component {
                             />
                             <img
                                 className="w-100 prod-img__768"
-                                src={require("../assets/img/home/768/lady-full.png")}
+                                src={require("../../assets/img/home/768/lady-full.png")}
                                 alt="First slide"
                             />
                             <Carousel.Caption>
@@ -137,7 +112,30 @@ class PageBody extends Component {
                                     <p>
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
-                                </p>
+                                    </p>
+                                    <button>VIEW MORE</button>
+                                </div>
+                            </Carousel.Caption>
+                        </Carousel.Item>
+
+                        <Carousel.Item>
+                            <img
+                                className=" w-100 prod-img__320"
+                                src={ProdPhoto}
+                                alt="First slide"
+                            />
+                            <img
+                                className="w-100 prod-img__768"
+                                src={require("../../assets/img/home/768/lady-full.png")}
+                                alt="First slide"
+                            />
+                            <Carousel.Caption>
+                                <div className="slide__info">
+                                    <h4>Control and manage any device with cloud solutions </h4>
+                                    <p>
+                                        Improve business peformanceand the user experience with the right mix of IoT
+                                        technology and processes.
+                                    </p>
                                     <button>VIEW MORE</button>
                                 </div>
                             </Carousel.Caption>
@@ -150,7 +148,7 @@ class PageBody extends Component {
                             />
                             <img
                                 className="w-100 prod-img__768"
-                                src={require("../assets/img/home/768/lady-full.png")}
+                                src={require("../../assets/img/home/768/lady-full.png")}
                                 alt="First slide"
                             />
                             <Carousel.Caption>
@@ -159,7 +157,7 @@ class PageBody extends Component {
                                     <p>
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
-                                </p>
+                                    </p>
                                     <button>VIEW MORE</button>
                                 </div>
                             </Carousel.Caption>
@@ -167,15 +165,15 @@ class PageBody extends Component {
 
                     </Carousel>
 
-                    <div className="promotion-panel col-3">
+                    <div className="promotion-panel">
                         <div className="sale-50">
-                            <img src={require("../assets/img/home/768/sale-50.png")} />
+                            <img src={require("../../assets/img/home/768/sale-50.png")} />
                             <span className="sale-50__offer">50%</span>
                         </div>
                         <div className="social-facebook">
                             <h4>Follow us on Facebook</h4>
                             <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
-                            <button><span className="fab fa-facebook-f"></span> Follow</button>
+                            <a href="https://www.facebook.com/OSFGlobalServices" target="blank" title="Follow OSF - Global on Facebook"><span className="fab fa-facebook-f"></span> Follow</a>
                         </div>
                     </div>
                 </section>
@@ -190,7 +188,7 @@ class PageBody extends Component {
                                     <Carousel.Item >
                                         <img
                                             className="d-block w-100"
-                                            src={require(`../assets/img/products/prod-${product.id}.png`)}
+                                            src={require(`../../assets/img/products/prod-${product.id}.png`)}
                                             alt={product.name}
                                         />
                                         <Carousel.Caption>
@@ -210,9 +208,9 @@ class PageBody extends Component {
                     <h2>Popular items</h2>
                     <div className="popular-items-768__container-wrapper">
                         {
-                            !this.state.isLoading ? this.loadProdutcs() : <SyncLoader color="white"/>
+                            !this.state.isLoading ? this.loadPopProdutcs() : <SyncLoader color="white" />
                         }
-                        
+
                     </div>
                     {this.state.loadProd ? <button onClick={this.loadMoreProd}>LOAD MORE <span className="fas fa-redo" ></span></button> : null}
 
@@ -223,7 +221,7 @@ class PageBody extends Component {
                         <h2>Banner OSF Theme</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
-                    <img src={require("../assets/img/home/banner-osf.png")} alt="Banner OSF" />
+                    <img src={require("../../assets/img/home/banner-osf.png")} alt="Banner OSF" />
                 </section>
 
                 <section className="advantages">

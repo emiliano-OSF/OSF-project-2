@@ -1,4 +1,5 @@
 
+
 $primary-font: 'Lato Regular';
 $primary-font-bold: 'Lato Bold';
 $primary-font-light: 'Lato Light';
@@ -9,15 +10,17 @@ $secondary-darker-color: #45413e;
 .cloud-solution__container{
     position: relative;
     z-index: 1;
-    width: 95%;
+    width: 90%;
     margin: 75px auto 0px auto;
-    padding: 10px 5px;
+    padding: 10px 5px 25px;
 
     ol{
         margin-bottom: 0;
     }
     .prod-img__320{
         display: block;
+        height: 60vw;
+        object-fit: cover;
     }
     .prod-img__768{
         display: none;
@@ -51,31 +54,32 @@ $secondary-darker-color: #45413e;
     }
 
     h4{
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         display: block;
         width: 100%;
-        font-size: 19px;
+        font-size: 16px;
         font-weight: bold;
     }
 
     p{
         display: block;
         width: 100%;
-        font-size: 15px;
+        font-size: 12px;
     }
 
     button{
-        margin-top: 20px;
         border: 2px solid #ffffff93;
         background: transparent;
         border-radius: 20px;
         padding: 5px 30px;
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 700;
         color: #ffffff;
         outline: none;
     }
 }
+
+
 
 .popular-items-320__container{
     width: 100%;
@@ -83,7 +87,7 @@ $secondary-darker-color: #45413e;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 60px auto 0px auto;
+    margin: 0px auto 0px auto;
     padding: 10px;;
     background-color: $darker-color;
     .popular-items__container-wrapper{
@@ -214,11 +218,127 @@ $secondary-darker-color: #45413e;
     }
 }
 
+@media only screen and (min-width: 321px){
+    
+    .cloud-solution__container{
+        
+        .col-9{
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
+    }
+   
+}
+
+@media only screen and(min-width: 480px){
+    .cloud-solution__container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .carousel{
+            width: 80vw;
+        }
+
+        .promotion-panel{
+            position: relative;
+            margin: 20px 0 0 0;
+            display: flex;
+            align-items: center;
+
+            img{
+                width: 200px;
+            }
+            .sale-50{
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
+            .sale-50__offer{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                top: 10%;
+                font-family: $primary-font-bold;
+                font-weight: bolder;
+                font-size: 60px;
+                color: #ffffff
+            }
+            .sale-50__offer::after{
+                content: 'SUMMER SALES';
+                width: 100px;
+                margin-top: 20px;
+                display: block;
+                font-family: $primary-font;
+                font-weight: normal;
+                font-size: 20px;
+                text-align: center;
+            }
+
+            .social-facebook{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                
+                h4{
+                    display: block;
+                    text-align: center;
+                    width: 100%;
+                    font-size: 15px;
+                }
+                p{
+                    display: block;
+                    text-align: center;
+                    font-size: 12px;
+                }
+                a{
+                    border: 2px solid #3a5b96;
+                    border-radius: 20px;
+                    background: transparent;
+                    padding: 5px 30px;
+                    color: #3a5b96;
+                    &:hover{
+                        background: rgba($color: rgb(0, 0, 153), $alpha: 0.1);
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    .slide__info{
+        h4{
+            margin-bottom: 20px;
+            display: block;
+            width: 100%;
+            font-size: 25px;
+            font-weight: bold;
+        }
+    
+        p{
+            font-size: 14px;
+        }
+    
+        button{
+            border: 2px solid #ffffff93;
+            background: transparent;
+            border-radius: 20px;
+            padding: 5px 30px;
+            font-size: 10px;
+            font-weight: 700;
+            color: #ffffff;
+            outline: none;
+        }
+    }
+}
+
 
 @media only screen and (min-width: 768px){
     .cloud-solution__container{
         width: 90%;
         padding: 0 0 40px;
+        flex-direction: row;
         .col-9{
             max-width: 75%;
             flex: 0 0 75%;
@@ -233,9 +353,16 @@ $secondary-darker-color: #45413e;
         .prod-img__320{
             display: none;  
         }
+
+        .carousel{
+            position: relative;
+            width: 60vw;
+        }
         
         .promotion-panel{
+            margin: 0 25px;
             display: block;
+            width: 23vw;
 
             img{
                 width: 200px;
