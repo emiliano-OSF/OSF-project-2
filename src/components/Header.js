@@ -14,7 +14,6 @@ import cartIcon from "../assets/img/icons/bag.svg"
 // }
 
 class Header extends Component {
-
     state = {
         showMenu: false,
         notFoudPage: "404"
@@ -47,10 +46,18 @@ class Header extends Component {
                     </div>
                 </div>
 
+                {/* <nav className="headernav__480 row">
+                    <ul>
+                        <li>
+                            <span>
+                                <a></a>
+                            </span>
+                        </li>
+                    </ul>
+                </nav> */}
+
                 <nav className="headernav__768 row">
                     <ul className="headernav__786--option">
-                        <li></li>
-                        <li></li>
                         <li></li>
                     </ul>
                 </nav>

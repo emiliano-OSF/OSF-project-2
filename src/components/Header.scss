@@ -5,7 +5,6 @@ $darker-color: #262a32;
 $secondary-darker-color: #45413e;
 
 
-
 header{
     position: fixed;
     top: 0px;
@@ -22,10 +21,12 @@ header{
     background-color: white;
     padding: 5px 0px;
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+
     .logopanel__button{
-    margin: 0px 14px;
-    cursor: pointer;
-    font-size: 20px;
+        display: block;
+        margin: 0px 14px;
+        cursor: pointer;
+        font-size: 20px;
     }
 }
 .img-1280{
@@ -117,6 +118,7 @@ header{
         cursor: pointer;
     }
 }
+
 @media only screen and (min-width: 321px){
     .img-1280{
         display: block;
@@ -124,6 +126,16 @@ header{
     }
     .img-320{
         display: none;
+    }
+}
+@media only screen and (min-width: 480px){
+    .img-1280{
+        margin-left: 20%;
+    }
+    .logopanel{
+        .logopanel__button{
+            display: none;
+        }
     }
 }
 
