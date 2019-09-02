@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./Header.scss"
 //import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import logo from "../assets/img/icon-osf.png"
