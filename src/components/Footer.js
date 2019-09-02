@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import "./Footer.scss"
 
 class Footer extends Component {
 
@@ -46,8 +47,21 @@ class Footer extends Component {
 
                         </div>
                     </div>
+                    <div className="footer__social-media" >
+                        <a className="social-media__icon" href="https://www.facebook.com/OSFGlobalServices" target="blank">
+                            <img src={require("../assets/img/icons/social media/facebook_icon.svg")} />
+                        </a>
+                        <a className="social-media__icon" href="https://www.google.com.br/" target="blank">
+                            <img src={require("../assets/img/icons/social media/google_plus_icon.svg")} />
+                        </a>
+                        <a className="social-media__icon" href="https://br.pinterest.com/" target="blank">
+                            <img src={require("../assets/img/icons/social media/pinterest_icon.svg")} />
+                        </a>
+                        <a className="social-media__icon" href="https://twitter.com/osfglobal" target="blank">
+                            <img src={require("../assets/img/icons/social media/twitter_icon.svg")} />
+                        </a>
+                    </div>
                 </div>
-
             </footer>
         )
     }
