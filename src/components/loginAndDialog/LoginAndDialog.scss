@@ -4,12 +4,6 @@ $primary-font-light: 'Lato Light';
 
 
 .login-container{
-    z-index: -10;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    background-color: rgba($color: #000000, $alpha: .7);
 
     .login-dialog__panel{
         z-index: 100;

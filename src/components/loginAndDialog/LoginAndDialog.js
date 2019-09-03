@@ -7,7 +7,8 @@ import './LoginAndDialog.scss';
 export default class LoginAndDialog extends Component {
 
     state = {
-        showLogIn: false
+        showLogIn: false,
+        password: ''
     }
 
     show(){
@@ -15,44 +16,45 @@ export default class LoginAndDialog extends Component {
             showLogIn: true
         })
     }
+
     toggle = ()=>{
         this.setState({
             showLogIn: false
         })
     }
-    componentDidMount(){
-        console.log(this.props.show)
-        this.setState({
-            showLogIn: this.props.show
-        })
+
+
+    //Preparando para validar a senha
+    validatePassword(){
+        const validation = new RegExp('^(?=.*[a-z])(?=.*[A-Z])');
+        if(validation.test(this.state.password)){
+            console.log("passou", this.state.password);
+            return
+        }
+        console.log("não passou", this.state.password)
+
     }
 
     render() {
-        if (!this.state.showLogIn) return null;
+        //if (!this.state.showLogIn) return null;
         
         return (
-            <div className="odal">
-                <Modal id='modal' open={this.state.showLogIn} onClose={this.toggle} onClose={this.toggle}>
-                    <h1>Modal aberto</h1>
-                </Modal>
-
-            </div>
-            // <section className="login-container" onClick={()=> this.hide()}>
-            //     <div className="login-dialog__panel">
-            //         <h3 >Sign in</h3>
-            //         <form className="login-dialog__form-group">
-            //             <div className="input-group">
-            //                 <label>Email</label>
-            //                 <input type='email' placeholder="Enter your email" />
-            //             </div>
-            //             <div className="input-group">
-            //                 <label>Password <span>Forgot passowrd</span></label>
-            //                 <input type='password' placeholder="Enter your password" />
-            //             </div>
-            //             <button type='submit'>LOGIN</button>
-            //         </form>
-            //     </div>
-            // </section>
+            <Modal className="login-container" open={true} onClose={this.toggle}>
+                <div className="login-dialog__panel">
+                    <h3 >Sign in</h3>
+                    <form className="login-dialog__form-group">
+                        <div className="input-group">
+                            <label>Email</label>
+                            <input type='email' placeholder="Enter your email" />
+                        </div>
+                        <div className="input-group">
+                            <label>Password <span>Forgot passowrd</span></label>
+                            <input type='password' placeholder="Enter your password" />
+                        </div>
+                        <button type='submit' >LOGIN</button>
+                    </form>
+                </div>
+            </Modal>
         )
     }
 }
