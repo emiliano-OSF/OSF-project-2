@@ -14,15 +14,32 @@ import cartIcon from "../assets/img/icons/bag.svg"
 // }
 
 class Header extends Component {
+    constructor(){
+        super();
+        this.showMenuPanel = this.showMenuPanel.bind(this);
+    }
     state = {
         showMenu: false,
-        notFoudPage: "404"
+        notFoundPage: "404",
+        activePanel: ''
+
     };
 
-    togleMenuBtn = () => {
+    togleSideMenuBtn = () => {
         this.setState({
             showMenu: !this.state.showMenu
         })
+    }
+
+    showMenuPanel(e){
+        const clicked = e.target.id;
+        if(this.state.activePanel === clicked){
+            this.setState({activePanel: ''});
+            console.log("vazio")
+        } else{
+            this.setState({activePanel: clicked});
+            console.log("cheio")            
+        }
     }
 
     render() {
@@ -32,10 +49,10 @@ class Header extends Component {
         return (
             <header>
                 <div className='logopanel row'>
-                    <div className="logopanel__button col-3">
-                        <a className={`fas ${menuClass}`} onClick={this.togleMenuBtn}></a>
+                    <div className="logopanel__button">
+                        <a className={`fas ${menuClass}`} onClick={this.togleSideMenuBtn}></a>
                     </div>
-                    <div className={`logopanel__homelogo col-7`}>
+                    <div className={`logopanel__homelogo`}>
                         <a href='/'>
                             <img src={logo} alt="OSF - Home" className="img-320" />
                         </a>
@@ -46,21 +63,125 @@ class Header extends Component {
                     </div>
                 </div>
 
-                {/* <nav className="headernav__480 row">
-                    <ul>
-                        <li>
-                            <span>
-                                <a></a>
-                            </span>
-                        </li>
-                    </ul>
-                </nav> */}
+                <nav className="mega-menu">
+                    <nav className="headernav__buttons">
+                        <h4 className={`${this.state.activePanel === 'first'? "active": ""}`} id="first" onClick={this.showMenuPanel}>SERVICES <span className="fas fa-caret-down"></span></h4>
+                        <h4 className={`${this.state.activePanel === 'second'? "active": ""}`} id="second" onClick={this.showMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></h4>
+                        <h4 className={`${this.state.activePanel === 'third'? "active": ""}`} id="third" onClick={this.showMenuPanel}>LIBRARY <span className="fas fa-caret-down"></span></h4>
+                        <h4 className={`${this.state.activePanel === 'fourth'? "active": ""}`} id="fourth" onClick={this.showMenuPanel}>CONTACT US <span className="fas fa-caret-down"></span></h4>
+                    </nav>
 
-                <nav className="headernav__768 row">
-                    <ul className="headernav__786--option">
-                        <li></li>
-                    </ul>
+                    <section className="nav-panel" style={{ display: "none" }}>
+                        <div className="nav-panel__category-block">
+                            <span>PRODUCT CATEGORY</span>
+                            <div className="nav-panel__categories">
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Accessories </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Alcohol </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Art </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Books </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Gadgets </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Garden </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Home </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Jewelry </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Kids & Baby </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Men's Fashion </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Mobile </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Motorcycles </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Movies </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Music </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Office </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Pets </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Romantic </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Sport </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Toys </a>
+
+                            </div>
+
+                        </div>
+                        <div className="nav-panel__category-block">
+                            <span>SALE</span>
+                            <div className="nav-panel__categories">
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Accessories </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Alcohol </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Art </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Books </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
+                            </div>
+
+
+                        </div>
+                    </section>
+                    <section className="nav-panel">
+                        <div className="nav-panel__category-block">
+                            <span>COMPANY PANEL</span>
+                            <div className="nav-panel__categories">
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Accessories </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Alcohol </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Art </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Books </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Gadgets </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Garden </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Home </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Jewelry </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Kids & Baby </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Men's Fashion </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Mobile </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Motorcycles </a>
+                            </div>
+
+                        </div>
+                    </section>
                 </nav>
+
+
+
+
+
+                {/* <nav className="headernav__768">
+                    <div className="headernav__title">
+                        <h4>SERVICES <span className="fas fa-caret-down"></span></h4>
+                        <div className="headernav__service-panel">
+                            <div className="service-panel__prod-category">
+                                <span>PRODUCT CATEGORY</span>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Accessories </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Alcohol </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Art </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Books </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Gadgets </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Garden </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Home </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Jewelry </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Kids & Baby </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Men's Fashion </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Mobile </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Motorcycles </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Movies </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Music </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Office </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Pets </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Romantic </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Sport </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Toys </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </nav> */}
 
                 <nav className="headernav row" >
                     <ul className={`headernav__option col-12 ${menuShow}`} >
@@ -78,6 +199,14 @@ class Header extends Component {
                                 <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
                                 <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
                                 <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Gadgets </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Garden </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Home </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Jewelry </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Kids & Baby </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Men's Fashion </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Mobile </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Motorcycles </a>
                                 <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
                             </div>
                             <div className="nav-menu">

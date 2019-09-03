@@ -28,6 +28,7 @@ header{
         cursor: pointer;
         font-size: 20px;
     }
+
 }
 .img-1280{
     display: none;
@@ -129,14 +130,87 @@ header{
     }
 }
 @media only screen and (min-width: 480px){
-    .img-1280{
-        margin-left: 20%;
-    }
     .logopanel{
         .logopanel__button{
             display: none;
         }
+        .logopanel__homelogo{
+            margin: 0 auto 0 auto;
+        }
     }
+
+    .headernav__buttons{
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0 40px;
+        background-color: white;
+
+        h4{
+            position: relative;
+            margin: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5px;
+            font-size: 14px;
+            border-bottom: 2px solid transparent;
+
+            &:hover{
+                background-color: $darker-color;
+                color: white;
+                cursor: pointer;
+            }
+
+            span{
+                margin-left: 7px
+            }
+        }
+    }
+
+    .active{
+        background-color: $darker-color;
+        color: white;
+        cursor: pointer;
+        border-bottom:4px solid #84bc22;
+    }
+
+    .nav-panel{
+        color: white;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-color: $darker-color;
+
+        .nav-panel__category-block{
+            height: 380px;
+            width: 50%;
+            padding: 20px 0 50px 20px;
+            
+            span{
+                margin-bottom: 5px;
+                display: block;
+                font-family: $primary-font-bold;
+                font-size: 14px;
+            }
+            .nav-panel__categories{
+                height: 100%;
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+
+                a{
+                    color: white;
+                    width: 150px;
+                }
+            }
+
+        }
+    }
+
 }
 
 @media only screen and (min-width: 768px){
