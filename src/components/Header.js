@@ -17,14 +17,17 @@ import cartIcon from "../assets/img/icons/bag.svg"
 class Header extends Component {
     constructor() {
         super();
+        this.loginPage = React.createRef();
         this.showMenuPanel = this.showMenuPanel.bind(this);
         this.setWrapper = this.setWrapper.bind(this);
         this.handleOutClick = this.handleOutClick.bind(this)
     }
+
     state = {
         showMenu: false,
         notFoundPage: "/404",
-        activePanel: ''
+        activePanel: '',
+        showLoginDialog: false
 
     };
 
@@ -60,6 +63,10 @@ class Header extends Component {
         } else {
             this.setState({ activePanel: clicked });
         }
+    }
+
+    showLogin =() =>{
+        this.loginPage.current.show();
     }
 
 
@@ -206,45 +213,6 @@ class Header extends Component {
                     </section>
                 </nav>
 
-
-
-
-
-                {/* <nav className="headernav__768">
-                    <div className="headernav__title">
-                        <h4>SERVICES <span className="fas fa-caret-down"></span></h4>
-                        <div className="headernav__service-panel">
-                            <div className="service-panel__prod-category">
-                                <span>PRODUCT CATEGORY</span>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Accessories </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Alcohol </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Art </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Books </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Gadgets </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Garden </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Home </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Jewelry </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Kids & Baby </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Men's Fashion </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Mobile </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Motorcycles </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Movies </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Music </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Office </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Pets </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Romantic </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Sport </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Toys </a>
-
-                            </div>
-                        </div>
-                    </div>
-                </nav> */}
-
                 <nav className="headernav row" >
                     <ul className={`headernav__option col-12 ${menuShow}`} >
                         <li>
@@ -360,7 +328,9 @@ class Header extends Component {
                         <img src={searchIcon} />
                     </li>
                     <li>
+                        <a onClick={this.showLogin}>
                         <img src={userIcon} />
+                        </a>
                     </li>
                     <li>
                         <img src={wishIcon} />
@@ -369,7 +339,7 @@ class Header extends Component {
                         <img src={cartIcon} />
                     </li>
                 </ul>
-                <LoginAndDialog/>
+                <LoginAndDialog ref={this.loginPage} />
             </header>
         )
     }

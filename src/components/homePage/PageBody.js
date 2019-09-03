@@ -68,7 +68,6 @@ class PageBody extends Component {
     }
 
     render() {
-        console.log(this.props.foi);
         return (
             <div className="wrapper">
                 <section className="cloud-solution__container row" >
