@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Carousel from 'react-bootstrap/Carousel'
-import SyncLoader from "react-spinners/SyncLoader"
+import Carousel from 'react-bootstrap/Carousel';
+import SyncLoader from "react-spinners/SyncLoader";
+import ItemsCarousel from 'react-items-carousel';
+import range from 'lodash/range';
 import "./PageBody.scss"
 
 //import ProdPhoto from "../assets/img/home/768/lady-full.png";
@@ -14,9 +16,12 @@ class PageBody extends Component {
 
     state = {
         products: [],
+        featuredProducts: [],
+        isLoadingFeatured: true,
         isLoading: true,
         isError: false,
-        loadProd: true
+        loadProd: true,
+        landingPage: '/category-landing-page'
     }
 
     async componentDidMount() {
@@ -27,6 +32,14 @@ class PageBody extends Component {
                     this.setState({
                         products: data,
                         isLoading: false
+                    })
+                })
+            fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/featured-products")
+                .then(res => res.json())
+                .then(data => {
+                    this.setState({
+                        featuredProducts: data,
+                        isLoadingFeatured: false
                     })
                 })
 
@@ -50,22 +63,51 @@ class PageBody extends Component {
             })
         )
     }
-
     loadMoreProd = () => {
         //console.log("carregou");
         let lista = this.state.products;
         lista = [...lista, ...lista];
-        try {
 
-            this.setState({
-                products: lista,
-                loadProd: false
-            })
-
-        } catch (error) {
-            console.log(error)
-        }
+        this.setState({
+            products: lista,
+            loadProd: false
+        })
     }
+
+    loadFeaturedProducts = () => {
+        return (
+            <ItemsCarousel
+                gutter={12}
+                activePosition={'center'}
+                chevronWidth={100}
+                numberOfCards={4}
+                slidesToScroll={4}
+                outsideChevron={true}
+                showSlither={false}
+                firstAndLastGutter={false}
+                activeItemIndex={this.state.activeItemIndex}
+                requestToChangeActive={value => this.setState({ activeItemIndex: value })}
+                rightChevron={<span className='fas fa-angle-right'></span>}
+                leftChevron={<span className='fas fa-angle-left'></span>}
+
+            >
+                {Array.from(this.state.featuredProducts).map((_, i) =>
+
+                    <a href={this.state.landingPage} className="featured-products__tile">
+                        <img key={i} src={require(`../../assets/img/home/featured/prod_${_.id}.png`)} />
+                        <p>{_.title}</p>
+                        <span>{_.category}</span>
+                    </a>
+
+                )}
+            </ItemsCarousel>
+        )
+    }
+
+    createChildren = n => range(n).map(i => <div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
+
+    changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
+
 
     render() {
         return (
@@ -80,7 +122,7 @@ class PageBody extends Component {
                             />
                             <img
                                 className="w-100 prod-img__768"
-                                src={require("../../assets/img/home/768/lady-full.png")}
+                                src={require("../../assets/img/home/768/prod_01.png")}
                                 alt="First slide"
                             />
                             <Carousel.Caption>
@@ -89,8 +131,8 @@ class PageBody extends Component {
                                     <p>
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
-                                </p>
-                                    <button>VIEW MORE</button>
+                                    </p>
+                                    <a href={this.state.landingPage}>VIEW MORE</a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -164,7 +206,6 @@ class PageBody extends Component {
                         </Carousel.Item>
 
                     </Carousel>
-
                     <div className="promotion-panel">
                         <div className="sale-50">
                             <img src={require("../../assets/img/home/768/sale-50.png")} alt="Promotion" />
@@ -222,6 +263,38 @@ class PageBody extends Component {
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                     <img src={require("../../assets/img/home/banner-osf.png")} alt="Banner OSF" />
+                </section>
+
+                <section className="featured-products">
+                    <h3>
+                        Featured Products
+                    </h3>
+                    <span>Unde omnis iste natus error sit voluptatem</span>
+                    <div className="featured-products__slider" style={{ "padding": "0 60px", "maxWidth": 1000, "margin": "0 auto", 'height': '400px' }}>
+                        {
+                            !this.state.isLoadingFeatured ? this.loadFeaturedProducts() : <SyncLoader color="white" />
+                        }
+                        {/* <ItemsCarousel
+                            gutter={12}
+                            activePosition={'center'}
+                            chevronWidth={60}
+                            numberOfCards={4}
+                            slidesToScroll={4}
+                            outsideChevron={true}
+                            showSlither={false}
+                            firstAndLastGutter={false}
+                            activeItemIndex={this.state.activeItemIndex}
+                            requestToChangeActive={value => this.setState({ activeItemIndex: value })}
+                            rightChevron={<span>tras</span>}
+                            leftChevron={<span>Frente</span>}
+
+                        >
+                            {Array.from(this.state.featuredProducts).map((_, i) =>
+
+                                <img key={i} src={require(`../../assets/img/home/featured/prod_${_.id}.png`)} />
+                            )}
+                        </ItemsCarousel> */}
+                    </div>
                 </section>
 
                 <section className="advantages">

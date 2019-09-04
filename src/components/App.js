@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './Header';
 import PageBody from './homePage/PageBody';
 import Footer from './Footer';
-import NotFoundPage from './notFoundPage/NotFoundPage'
+import NotFoundPage from './notFoundPage/NotFoundPage';
+import CategoryLandingPage from './categoryLandingPage/CategoryLandingPage';
 
 
 
@@ -16,6 +17,7 @@ class App extends Component {
                     <Switch>
                         <Route path="/" exact={true} component={PageBody} />
                         <Route path="/404" component={NotFoundPage} />
+                        <Route path="//category-landing-page" component={CategoryLandingPage} />
 
                     </Switch>
                     {/* <PageBody /> */}

@@ -132,6 +132,10 @@ header{
     }
 }
 
+.nav-panel__img{
+    display: none;
+}
+
 @media only screen and (min-width: 321px){
     .img-1280{
         display: block;
@@ -202,15 +206,17 @@ header{
 
     .nav-panel{
         display: none;
+        padding: 30px 0;    
         color: white;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-around;
         background-color: $darker-color;
 
         .nav-panel__category-block{
             height: 380px;
-            width: 50%;
+            width: 26%;
             padding: 20px 0 50px 20px;
             
             span{
@@ -257,6 +263,8 @@ header{
     .mega-nav{
         height: 100%;
         padding: 10px 0px 0px;
+        display: flex;
+        align-items: center;
         .headernav__buttons{
             display: flex;
             height: 100%;
@@ -265,14 +273,27 @@ header{
                 padding: 0 15px;
             }
         }
+        .headernav__lang-op{
+            
+            span{
+                width: 50px;
+            }
+        }
+        
     }
 
     .mega-menu__sm{
         .headernav__buttons{
             display: none;
         }
+        .nav-panel__img{
+            width: 270px;
+            height: 276px;
+            margin: 30px 0;
+            display: block;
+            object-fit: cover;
+        }
     }
-
 }
 
 
