@@ -167,7 +167,7 @@ class PageBody extends Component {
 
                     <div className="promotion-panel">
                         <div className="sale-50">
-                            <img src={require("../../assets/img/home/768/sale-50.png")} />
+                            <img src={require("../../assets/img/home/768/sale-50.png")} alt="Promotion" />
                             <span className="sale-50__offer">50%</span>
                         </div>
                         <div className="social-facebook">

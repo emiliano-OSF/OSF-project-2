@@ -46,7 +46,7 @@ class Header extends Component {
     handleOutClick(event) {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
             //alert('You clicked outside of me!');
-            this.setState({activePanel: ''})
+            this.setState({ activePanel: '' })
         }
     }
 
@@ -65,7 +65,7 @@ class Header extends Component {
         }
     }
 
-    showLogin =() =>{
+    showLogin = () => {
         this.loginPage.current.show();
     }
 
@@ -76,7 +76,7 @@ class Header extends Component {
 
         return (
             <header>
-                <div className='logopanel row'>
+                <div className='logopanel'>
                     <div className="logopanel__button">
                         <a className={`fas ${menuClass}`} onClick={this.togleSideMenuBtn}></a>
                     </div>
@@ -87,11 +87,19 @@ class Header extends Component {
                         <a href='/'>
                             <img src={logoB} alt="OSF - Home" className="img-1280" />
                         </a>
+                    </div>
+                    <div className="mega-nav">
+                        <nav className="headernav__buttons">
+                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'first' ? "active" : ""}`} id="first" onClick={this.showMenuPanel}>SERVICES <span className="fas fa-caret-down"></span></h4>
+                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'second' ? "active" : ""}`} id="second" onClick={this.showMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></h4>
+                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'third' ? "active" : ""}`} id="third" onClick={this.showMenuPanel}>LIBRARY <span className="fas fa-caret-down"></span></h4>
+                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'fourth' ? "active" : ""}`} id="fourth" onClick={this.showMenuPanel}>CONTACT US <span className="fas fa-caret-down"></span></h4>
+                        </nav>
 
                     </div>
                 </div>
 
-                <nav className="mega-menu">
+                <nav className="mega-menu__sm">
                     <nav className="headernav__buttons">
                         <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'first' ? "active" : ""}`} id="first" onClick={this.showMenuPanel}>SERVICES <span className="fas fa-caret-down"></span></h4>
                         <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'second' ? "active" : ""}`} id="second" onClick={this.showMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></h4>
@@ -329,7 +337,7 @@ class Header extends Component {
                     </li>
                     <li>
                         <a onClick={this.showLogin}>
-                        <img src={userIcon} />
+                            <img src={userIcon} />
                         </a>
                     </li>
                     <li>
