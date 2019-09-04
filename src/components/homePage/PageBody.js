@@ -63,6 +63,7 @@ class PageBody extends Component {
             })
         )
     }
+    
     loadMoreProd = () => {
         //console.log("carregou");
         let lista = this.state.products;
@@ -91,12 +92,12 @@ class PageBody extends Component {
                 leftChevron={<span className='fas fa-angle-left'></span>}
 
             >
-                {Array.from(this.state.featuredProducts).map((_, i) =>
+                {Array.from(this.state.featuredProducts).map((product, i) =>
 
                     <a href={this.state.landingPage} className="featured-products__tile">
-                        <img key={i} src={require(`../../assets/img/home/featured/prod_${_.id}.png`)} />
-                        <p>{_.title}</p>
-                        <span>{_.category}</span>
+                        <img key={i} src={require(`../../assets/img/home/featured/prod_${product.id}.png`)} />
+                        <p>{product.title}</p>
+                        <span>{product.category}</span>
                     </a>
 
                 )}
@@ -155,7 +156,7 @@ class PageBody extends Component {
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
                                     </p>
-                                    <button>VIEW MORE</button>
+                                    <a>VIEW MORE</a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -178,7 +179,7 @@ class PageBody extends Component {
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
                                     </p>
-                                    <button>VIEW MORE</button>
+                                    <a>VIEW MORE</a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -200,7 +201,7 @@ class PageBody extends Component {
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
                                     </p>
-                                    <button>VIEW MORE</button>
+                                    <a>VIEW MORE</a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>

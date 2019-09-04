@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './Header';
+import Breadcrumb from './Breadcrumb';
 import PageBody from './homePage/PageBody';
 import Footer from './Footer';
 import NotFoundPage from './notFoundPage/NotFoundPage';
@@ -13,11 +14,12 @@ class App extends Component {
         return (
             <div className="app" >
                 <Header />
+                <Breadcrumb/>
                 <BrowserRouter>
                     <Switch>
                         <Route path="/" exact={true} component={PageBody} />
                         <Route path="/404" component={NotFoundPage} />
-                        <Route path="//category-landing-page" component={CategoryLandingPage} />
+                        <Route path="/category-landing-page" component={CategoryLandingPage} />
 
                     </Switch>
                     {/* <PageBody /> */}
