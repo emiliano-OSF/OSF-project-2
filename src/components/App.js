@@ -17,9 +17,9 @@ class App extends Component {
                 <Breadcrumb/>
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/" exact={true} component={PageBody} />
-                        <Route path="/404" component={NotFoundPage} />
-                        <Route path="/category-landing-page" component={CategoryLandingPage} />
+                        <Route path="/home" exact={true} component={PageBody} />
+                        <Route path="/home/404" component={NotFoundPage} />
+                        <Route path="/home/category-landing-page" component={CategoryLandingPage} />
 
                     </Switch>
                     {/* <PageBody /> */}

@@ -21,7 +21,7 @@ class PageBody extends Component {
         isLoading: true,
         isError: false,
         loadProd: true,
-        landingPage: '/category-landing-page'
+        landingPage: '/home/category-landing-page'
     }
 
     async componentDidMount() {
@@ -105,7 +105,7 @@ class PageBody extends Component {
         )
     }
 
-    createChildren = n => range(n).map(i => <div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
+   // createChildren = n => range(n).map(i => <div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
 
     changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
 

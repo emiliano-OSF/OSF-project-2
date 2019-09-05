@@ -25,7 +25,8 @@ class Header extends Component {
 
     state = {
         showMenu: false,
-        notFoundPage: "/404",
+        notFoundPage: "/home/404",
+        homePage: '/home',
         activePanel: '',
         showLoginDialog: false
 
@@ -37,7 +38,7 @@ class Header extends Component {
 
     setWrapper(node) {
         this.wrapperRef = node;
-        console.log("cham")
+        //console.log("cham")
 
     }
 
@@ -81,10 +82,10 @@ class Header extends Component {
                         <a className={`fas ${menuClass}`} onClick={this.togleSideMenuBtn}></a>
                     </div>
                     <div className={`logopanel__homelogo`}>
-                        <a href='/'>
+                        <a href={this.state.homePage}>
                             <img src={logo} alt="OSF - Home" className="img-320" />
                         </a>
-                        <a href='/'>
+                        <a href={this.state.homePage}>
                             <img src={logoB} alt="OSF - Home" className="img-1280" />
                         </a>
                     </div>
