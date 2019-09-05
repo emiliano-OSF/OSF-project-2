@@ -24,7 +24,7 @@ class PageBody extends Component {
         landingPage: '/home/category-landing-page'
     }
 
-    async componentDidMount() {
+    componentDidMount() {
         try {
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
                 .then(res => res.json())
