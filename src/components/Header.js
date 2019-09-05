@@ -25,28 +25,28 @@ class Header extends Component {
 
     state = {
         showMenu: false,
-        notFoundPage: "/404",
+        notFoundPage: "/home/404",
+        homePage: '/home',
         activePanel: '',
         showLoginDialog: false
 
     };
 
     componentDidMount() {
-        document.addEventListener('mousedown', this.handleOutClick);
-    }
-
-    componentWillMount() {
-        document.removeEventListener('mousedown', this.handleOutClick);
+        //document.addEventListener('mousedown', this.handleOutClick);
     }
 
     setWrapper(node) {
         this.wrapperRef = node;
+        //console.log("cham")
+
     }
 
     handleOutClick(event) {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
             //alert('You clicked outside of me!');
             this.setState({ activePanel: '' })
+            console.log('ci')
         }
     }
 
@@ -60,6 +60,7 @@ class Header extends Component {
         const clicked = e.target.id;
         if (this.state.activePanel === clicked) {
             this.setState({ activePanel: '' });
+
         } else {
             this.setState({ activePanel: clicked });
         }
@@ -81,10 +82,10 @@ class Header extends Component {
                         <a className={`fas ${menuClass}`} onClick={this.togleSideMenuBtn}></a>
                     </div>
                     <div className={`logopanel__homelogo`}>
-                        <a href='/'>
+                        <a href={this.state.homePage}>
                             <img src={logo} alt="OSF - Home" className="img-320" />
                         </a>
-                        <a href='/'>
+                        <a href={this.state.homePage}>
                             <img src={logoB} alt="OSF - Home" className="img-1280" />
                         </a>
                     </div>
@@ -94,6 +95,15 @@ class Header extends Component {
                             <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'second' ? "active" : ""}`} id="second" onClick={this.showMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></h4>
                             <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'third' ? "active" : ""}`} id="third" onClick={this.showMenuPanel}>LIBRARY <span className="fas fa-caret-down"></span></h4>
                             <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'fourth' ? "active" : ""}`} id="fourth" onClick={this.showMenuPanel}>CONTACT US <span className="fas fa-caret-down"></span></h4>
+                        </nav>
+
+                        <nav className="headernav__lang-op">
+                            <span>
+                                EN<span className="fas fa-caret-down"></span>
+                            </span>
+                            <span>
+                                US<span className="fas fa-caret-down"></span>
+                            </span>
                         </nav>
 
                     </div>
@@ -153,6 +163,8 @@ class Header extends Component {
 
 
                         </div>
+                        <img className="nav-panel__img" src={require('../assets/img/home/lady_01.png')} />
+
                     </section>
                     <section className="nav-panel" style={{ display: this.state.activePanel === 'second' ? 'flex' : 'none' }}>
                         <div className="nav-panel__category-block">
@@ -230,33 +242,33 @@ class Header extends Component {
                             </span>
                             <div className="nav-menu">
                                 <span className="nav-menu__title">Product Categories</span>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Accessories </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Alcohol </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Art </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Books </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Gadgets </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Garden </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Home </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Jewelry </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Kids & Baby </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Men's Fashion </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Mobile </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Motorcycles </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Accessories </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Alcohol </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Art </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Books </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Drink </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Eletronics </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Flower & Plants </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Gadgets </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Garden </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Home </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Jewelry </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Kids & Baby </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Men's Fashion </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Mobile </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Motorcycles </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Food </a>
                             </div>
                             <div className="nav-menu">
                                 <span className="nav-menu__title">Sale</span>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Accessories </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Alcohol </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Art </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Books </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Drink </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Eletronics </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Flower & Plants </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Food </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Accessories </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Alcohol </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Art </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Books </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Drink </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Eletronics </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Flower & Plants </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Food </a>
                             </div>
                         </li>
 
@@ -270,14 +282,14 @@ class Header extends Component {
                                     <a>Company Options</a>
                                     <a className="fas fa-caret-down"></a>
                                 </span>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
                             </div>
                         </li>
 
@@ -291,14 +303,14 @@ class Header extends Component {
                                     <a>Library Options</a>
                                     <a className="fas fa-caret-down"></a>
                                 </span>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
                             </div>
                         </li>
                         <li>
@@ -311,14 +323,14 @@ class Header extends Component {
                                     <a>Contact Options</a>
                                     <a className="fas fa-caret-down"></a>
                                 </span>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
-                                <a className="nav-menu__op-category" href={this.state.notFoudPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
+                                <a className="nav-menu__op-category" href={this.state.notFoundPage}>Option </a>
                             </div>
                         </li>
 

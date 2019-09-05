@@ -3,6 +3,10 @@ import "./Footer.scss"
 
 class Footer extends Component {
 
+    state= {
+        notFoundPage: '/home/404'
+    }
+
     render() {
         const year = new Date();
         return (
@@ -27,23 +31,23 @@ class Footer extends Component {
                     <div className="footer__menu--op">
                         <div className="footer-category">
                             <span className="footer-category">Categories <span className="fas fa-caret-down"></span></span>
-                            <a className="footer-category__op" href="./pages/not-found.html">Accessories</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Alcohol</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Art</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Books</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Drink</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Eletronics</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Flowers & Plants</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Food</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Accessories</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Alcohol</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Art</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Books</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Drink</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Eletronics</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Flowers & Plants</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Food</a>
                         </div>
                     </div>
                     <div className="footer__menu--op">
                         <div className="footer-category">
                             <span className="footer-category">About <span className="fas fa-caret-down"></span></span>
-                            <a className="footer-category__op" href="./pages/not-found.html">About us</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Delivery</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Testmonials</a>
-                            <a className="footer-category__op" href="./pages/not-found.html">Contact</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>About us</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Delivery</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Testmonials</a>
+                            <a className="footer-category__op" href={this.state.notFoundPage}>Contact</a>
 
                         </div>
                     </div>

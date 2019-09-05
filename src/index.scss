@@ -45,8 +45,9 @@ $secondary-darker-color: #45413e;
     list-style: none;
 }
 body{
-    padding: 0px 0px 70px 0px;
+    padding: 60px 0 70px 0;
     box-sizing: border-box;
+    overflow: hidden scroll;
 }
 
 .login-register{

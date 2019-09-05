@@ -1,0 +1,30 @@
+
+
+.breadcrumb__container{
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h4{
+        margin: 0;
+        font-size: 13px;
+        color: #87c440;
+        cursor: pointer;
+        user-select: none;
+
+        &:hover{
+            color:  #65942f;
+        }
+
+        span{
+            margin: 0px 10px;
+            color: #45413e;    
+        }
+    }
+    .last-crumb{
+        color: #45413e;
+        cursor: unset;
+        margin: 0 5px
+    }
+}

@@ -1,0 +1,116 @@
+
+@mixin d-flex-col-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-page__container{
+    width: 100vw;
+    padding: 10px 20px;
+    background-color: #f2edea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    .landing-page__tittle{
+        position: relative;
+        margin: 10px 0;
+        &::before{
+            content: "";
+            position: absolute;
+            left: -20%;
+            bottom: 50%;
+            height: 3px;
+            width: 200%;
+            transform: translate(-100%, 100%);
+            background-color: white;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            right: -20%;
+            bottom: 50%;
+            height: 3px;
+            width: 200%;
+            transform: translate(100%, 100%);
+            background: white;
+        }
+    }
+
+    span{
+        color: #8dc73e;
+        font-size: 13px;
+        margin: 0 0 20px 0;
+    }
+    .landing-page__filters{
+        width: 100%;
+        border-radius: 5px;
+        background-color: white;
+        padding: 15px 35px;
+
+        .landing-page__filters--block{
+            width: 100%;
+
+            span{
+                margin: 0 25px 0 0;
+            }
+
+            .filter{
+                margin: 15px 0;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                span{
+                    color: black;
+                }
+            }
+
+            .color{
+                width: 15px;
+                height: 15px;
+                border-radius: 100%;
+                border: 2px solid black;
+                cursor: pointer;
+            }
+
+            select{
+                width: 200px;   
+                border: 2px solid rgba(69, 65, 62, 0.5);
+                border-radius: 20px;
+                padding: 5px 20px;
+                font-size: 13px;
+            }
+        }
+    }
+
+    .landing-page__product-panel{
+        width: 100%;
+        @include d-flex-col-center(); //test of sass mixins
+
+        .product-tile{
+            
+        }
+    }
+
+    p{
+        margin: 20px 0;
+    }
+
+    button{
+        color: white;
+        background-color: #84bc22;
+        padding: 13px 40px;
+        border-radius: 30px;
+        border: none;
+        outline: none;
+
+        &:hover{
+        background-color: #71a31b;
+            
+        }
+    }
+
+
+}
