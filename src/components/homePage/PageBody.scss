@@ -488,11 +488,11 @@ $secondary-darker-color: #45413e;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
 
             .popular-items-768__prod-tile{
                 position: relative;
-                margin: 0px 10px 30px;
+                margin: 0px 10px 20px;
                 border-radius: 5px;
                 width: 270px;
                 overflow: hidden;
