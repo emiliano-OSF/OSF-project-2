@@ -1,0 +1,184 @@
+
+$primary-font: 'Lato Regular';
+$primary-font-bold: 'Lato Bold';
+$primary-font-light: 'Lato Light';
+
+.not-found__container{
+    width: 100vw;
+    padding: 10px 20px;
+    background-color: #f2edea;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .not-found__tittle{
+        width: 15vw;
+        position: relative;
+        margin: 10px 0;
+        font-family: $primary-font-bold;
+        font-size: 48px;
+        text-align: center;
+    }
+
+    .not-found__panel{
+        width: 100%;
+        background-color: white;
+        border-radius: 7px;
+        
+        .not-found__warn{
+        display: none;
+        }
+        
+        .not-found__info{
+            width: 100%;
+            padding: 25px;
+
+            h5{
+                font-family: $primary-font-bold;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            a{
+                width: 120px;
+                display: block;
+                color: #84bc22;
+                margin-bottom: 30px;
+                &:hover{
+                    color: #629b00;
+                    cursor: pointer;
+                }
+            }
+            .search-input{
+                width: 250px;
+                border: 2px solid #e8e2d6;
+                border-radius: 20px;
+                padding: 3px 8px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                input{
+                    border: none;
+                    width: 90%;
+                    outline: none;
+                }
+                i{
+                    width: 10%;
+                    color: #4f4e4c;
+
+                    &:hover{
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and(min-width: 320px){
+    .not-found__container{
+        .not-found__tittle{
+            width: 25vw;
+            &::before{
+                content: "";
+                position: absolute;
+                left: -20%;
+                bottom: 50%;
+                height: 3px;
+                width: 110%;
+                transform: translate(-100%, 100%);
+                background-color: white;
+            }
+            &::after{
+                content: "";
+                position: absolute;
+                right: -20%;
+                bottom: 50%;
+                height: 3px;
+                width: 110%;
+                transform: translate(100%, 100%);
+                background: white;
+            }
+
+        }
+    }
+}
+
+@media only screen and(min-width: 768px){
+    .not-found__container{
+        .not-found__tittle{
+            
+            &::before{
+                content: "";
+                width: 120%
+            }
+            &::after{
+                content: "";
+                width: 120%;
+            }
+            
+        }
+    }
+}
+
+@media only screen and(min-width: 1280px){
+    .not-found__container{
+        
+        .not-found__tittle{
+            &::before{
+                width: 115%;
+            }
+            &::after{
+                width: 115%;
+            }
+        }
+
+        .not-found__panel{
+            display: flex;
+            align-items: center;
+            width: 95%;
+            height: 450px;
+
+            .not-found__warn{
+                width: 40%;
+                position: relative;
+                display: block;
+                padding: 50px;
+
+                h1{
+                    position: absolute;
+                    color: #84bc22;
+                    font-family: $primary-font-bold;
+                    font-size: 113px;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 10;
+                }
+                img{
+                    position: absolute;
+                    left: -40px;
+                    top: 50%;
+                    transform: translate(0, -50%);
+                    z-index: 1;
+                    height: 250px;
+                }
+
+            }
+
+            .not-found__info{
+                width: 50%;
+
+                .search-input{
+                    width: 100%;
+
+                    i{
+                        width: 5%;
+                    }
+                }
+            }
+            
+        }
+    }
+}

@@ -1,4 +1,9 @@
 
+$primary-font: 'Lato Regular';
+$primary-font-bold: 'Lato Bold';
+$primary-font-light: 'Lato Light';
+
+
 @mixin d-flex-col-center {
     display: flex;
     flex-direction: column;
@@ -24,6 +29,8 @@
     .landing-page__tittle{
         position: relative;
         margin: 10px 0;
+        font-family: $primary-font-bold;
+        font-size: 48px;
         &::before{
             content: "";
             position: absolute;

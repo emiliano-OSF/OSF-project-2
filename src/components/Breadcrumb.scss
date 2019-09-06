@@ -25,6 +25,9 @@
     .last-crumb{
         color: #45413e;
         cursor: unset;
-        margin: 0 5px
+        margin: 0 5px;
+        &:hover{
+            color: currentColor;
+        }
     }
 }
