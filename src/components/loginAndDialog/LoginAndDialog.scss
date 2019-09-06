@@ -4,6 +4,9 @@ $primary-font-light: 'Lato Light';
 
 
 .login-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .login-dialog__panel{
         z-index: 100;
@@ -33,7 +36,12 @@ $primary-font-light: 'Lato Light';
             .input-group{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 margin-top: 10px;
+                
+                label{
+                    width: 100%
+                }
             }
 
             button{
@@ -54,18 +62,71 @@ $primary-font-light: 'Lato Light';
             justify-content: space-between;
             
             span{
-                color: #84bc22;
                 font-size: 12px;
                 letter-spacing: 0.6px;
                 cursor: pointer;
+                color: #84bc22; 
             }
         }
 
         input{
             height: 36px;
+            width: 100%;
             padding: 0 10px;
             border: 2px solid #d7d7d7;
-            border-radius: 15px;
+            border-radius: 20px;
+            outline: none;
+
+            &:focus{
+                border: 2px solid #84bc22;;
+
+            }
         }
+        .password-field{
+            width: 100%;
+            border: 2px solid #d7d7d7;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px 0 0;       
+            
+            input{
+                border: none;
+            }
+
+            a{
+                cursor: pointer;
+                color: #c2c2c2;
+            }
+        }
+        small{
+            width: 200px;
+            font-size: 70%;
+            text-align: center;
+            color: rgb(199, 0, 0);
+        }
+        .ok-password{
+            color: #84bc22;
+        }
+    }
+}
+
+@media only screen and(min-width: 480px){
+
+    .login-container{
+        .login-dialog__panel{
+            width: 450px;
+            border-radius: 7px;
+
+        }   
+    }
+}
+
+@media only screen and(min-width: 768px){
+    .login-container{
+        .login-dialog__panel{
+            width: 500px;
+        }   
     }
 }
