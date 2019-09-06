@@ -110,6 +110,9 @@ export default class CategoryLandingPage extends Component {
                     }
                 </div>
                 <button>Load More</button>
+                
+                
+
             </div >
         )
     }

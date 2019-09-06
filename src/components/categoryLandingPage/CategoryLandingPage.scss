@@ -5,6 +5,14 @@
     align-items: center;
 }
 
+@mixin d-flex-row-center {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
 .landing-page__container{
     width: 100vw;
     padding: 10px 20px;
@@ -90,7 +98,36 @@
         @include d-flex-col-center(); //test of sass mixins
 
         .product-tile{
-            
+            width: 80%;
+            overflow: hidden;
+            border-radius: 7px;
+            @include d-flex-col-center();
+            background-color: white;
+            margin: 15px 0px;
+            text-align: center;
+
+            img{
+                width: 100%;
+            }
+
+            p{
+                height: 60px;
+                width: 80%;
+                margin: 15px auto 0px;
+                font-size: 16px;
+                text-align: center;
+            }
+            span{
+
+            }
+
+            &:hover{
+                cursor: pointer;
+                
+                p,span{
+                    text-decoration: underline;   
+                }    
+            }
         }
     }
 
@@ -111,6 +148,63 @@
             
         }
     }
+}
 
+@media only screen and(min-width: 320px){
+    .landing-page__container{
+        .landing-page__filters{
+            padding: 15px 25px;
+            @include d-flex-col-center();
+    
+            .landing-page__filters--block{
+                width: 350px;
+            }
+        }
+    }
+}
 
+@media only screen and(min-width: 480px){
+    .landing-page__container{
+        .landing-page__product-panel{
+            .product-tile{
+                width: 350px;
+            }
+        }
+    }
+}
+
+@media only screen and(min-width: 780px){
+    .landing-page__container{
+        .landing-page__filters{
+            // display: flex;
+            // flex-direction: row;
+            // flex-wrap: wrap;
+            // justify-content: center;
+            @include d-flex-row-center();
+            justify-content: space-between;
+
+            .landing-page__filters--block{
+                width: 300px;
+                margin: 0 17px;
+            }
+        }
+
+        .landing-page__product-panel{
+            @include d-flex-row-center();
+            justify-content: center;
+
+            .product-tile{
+                width: 320px;
+                margin: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and(min-width: 1280px){
+    .landing-page__container{
+        .landing-page__filters{
+            justify-content: space-between;
+        }
+    }
 }
