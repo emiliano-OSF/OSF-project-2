@@ -106,6 +106,15 @@ class Header extends Component {
                             </span>
                         </nav>
 
+                        <nav className="headernav__user-menu">
+                            <img src={searchIcon} />
+                            <a onClick={this.showLogin}>
+                                <img src={userIcon} />
+                            </a>
+                            <img src={wishIcon} />
+                            <img src={cartIcon} />
+                        </nav>
+
                     </div>
                 </div>
 
@@ -335,31 +344,20 @@ class Header extends Component {
                         </li>
 
                     </ul>
-
-                    <div className="headernav__option--lang col-3">
-                        <ul>
-                            <li>ENG</li>
-                            <li>$US</li>
-                        </ul>
-                    </div>
                 </nav>
-                <ul className="headernav__option--userfixed col-12">
-                    <li>
-                        <img src={searchIcon} />
-                    </li>
-                    <li>
-                        <a onClick={this.showLogin}>
-                            <img src={userIcon} />
-                        </a>
-                    </li>
-                    <li>
-                        <img src={wishIcon} />
-                    </li>
-                    <li>
-                        <img src={cartIcon} />
-                    </li>
-                </ul>
+
+                <div className="headernav__option--userfixed col-12">
+                    <img src={searchIcon} />
+                    <a onClick={this.showLogin}>
+                        <img src={userIcon} />
+                    </a>
+                    <img src={wishIcon} />
+                    <img src={cartIcon} />
+
+                </div>
+
                 <LoginAndDialog ref={this.loginPage} />
+
             </header>
         )
     }
