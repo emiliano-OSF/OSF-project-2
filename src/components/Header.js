@@ -107,12 +107,10 @@ class Header extends Component {
                         </nav>
 
                         <nav className="headernav__user-menu">
-                            <img src={searchIcon} />
-                            <a onClick={this.showLogin}>
-                                <img src={userIcon} />
-                            </a>
-                            <img src={wishIcon} />
-                            <img src={cartIcon} />
+                            <a className="fas fa-search" ></a>
+                            <a className="far fa-user" onClick={this.showLogin}></a>
+                            <a className="far fa-heart"></a>
+                            <a className="far fa-envelope"></a>
                         </nav>
 
                     </div>
@@ -347,12 +345,10 @@ class Header extends Component {
                 </nav>
 
                 <div className="headernav__option--userfixed col-12">
-                    <img src={searchIcon} />
-                    <a onClick={this.showLogin}>
-                        <img src={userIcon} />
-                    </a>
-                    <img src={wishIcon} />
-                    <img src={cartIcon} />
+                    <a className="fas fa-search" ></a>
+                    <a className="far fa-user" onClick={this.showLogin}></a>
+                    <a className="far fa-heart"></a>
+                    <a className="far fa-envelope"></a>
 
                 </div>
 

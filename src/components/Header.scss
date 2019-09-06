@@ -15,6 +15,8 @@ $secondary-darker-color: #45413e;
 @mixin d-flex-row-c {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -138,17 +140,19 @@ header{
     left: 0px;
     margin: 0px;
     padding: 19px 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    @include d-flex-row-c();
     background: $darker-color;
+    color: white;
+    font-size: 20px;
 
-    img{
-        display: block;
-        width: 24px;    
-        margin: 0px 18px;
+    a{
+        margin: 0 15px;
         cursor: pointer;
+        &:hover{
+            color: rgb(158, 158, 158);
+        }
     }
+    
 }
 
 .nav-panel__img{
@@ -280,13 +284,15 @@ header{
     }  
     .mega-nav{
         height: 100%;
+        width: 100%;
         padding: 10px 0px 0px;
-        display: flex;
-        align-items: center;
+        @include d-flex-row-c();
+        justify-content: space-around;
 
         .headernav__buttons{
             display: flex;
             height: 100%;
+            width: 470px;
 
             h4{
                 padding: 0 15px;
@@ -303,7 +309,8 @@ header{
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                color:  #bdc3c7
+                color:  #bdc3c7;
+                
             }
         }
         
@@ -336,8 +343,16 @@ header{
     .mega-nav{
         .headernav__user-menu{
             @include d-flex-row-c;
-            color: black;
-            background: black;
+            color: #45413e;
+            font-size: 20px;
+
+            a{
+                margin: 0 15px;
+                &:hover{
+                    color: #858585;
+                    cursor: pointer;
+                }
+            }
         }
 
     }
