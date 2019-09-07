@@ -14,9 +14,10 @@ class App extends Component {
         return (
             <div className="app" >
                 <Header />
-                <Breadcrumb/>
+                <Breadcrumb />
                 <BrowserRouter>
                     <Switch>
+                        <Route path="/" exact={true} component={PageBody} />
                         <Route path="/home" exact={true} component={PageBody} />
                         <Route path="/home/404" component={NotFoundPage} />
                         <Route path="/home/category-landing-page" component={CategoryLandingPage} />

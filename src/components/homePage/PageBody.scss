@@ -24,6 +24,7 @@ $secondary-darker-color: #45413e;
     }
     .prod-img__768{
         display: none;
+        height: 50vh;
     }
 
     .promotion-panel{
@@ -237,9 +238,12 @@ $secondary-darker-color: #45413e;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
 
         .carousel{
             width: 80vw;
+            overflow: hidden;
+            border-radius: 7px;
         }
 
         .promotion-panel{
@@ -337,36 +341,41 @@ $secondary-darker-color: #45413e;
 
 @media only screen and (min-width: 768px){
     .cloud-solution__container{
-        width: 90%;
+        width: 95%;
         padding: 0 0 40px;
         flex-direction: row;
+        align-items: normal;
         .col-9{
             max-width: 75%;
             flex: 0 0 75%;
         }
 
+        .carousel{
+            height: 500px;
+            width: 68vw;
+            position: relative;
+            border-radius: 7px;
+            overflow: hidden;
+        }
+
         .prod-img__768{
-            height: 400px;
             display: block;
+            height: 500px;
             object-fit: cover;
         }
 
         .prod-img__320{
             display: none;  
         }
-
-        .carousel{
-            position: relative;
-            width: 59vw;
-        }
         
         .promotion-panel{
-            margin: 0 25px;
+            margin: 0 0 0 25px;
             display: block;
             width: 23vw;
 
             img{
-                width: 200px;
+                width: 100%;
+                height: 400px;
             }
             .sale-50{
                 display: flex;
@@ -547,11 +556,14 @@ $secondary-darker-color: #45413e;
         }
     }
 }
-@media only screen and(min-width: 1124px){
-    // .featured-products{
-    //     display: flex;
-    //     flex-direction: column;
-    // }
+@media only screen and(min-width: 1280px){
+
+    .cloud-solution__container{
+
+        .carousel{
+            width: 68vw;
+        }
+    }
 
     .featured-products{
         display: flex;

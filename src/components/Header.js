@@ -20,7 +20,7 @@ class Header extends Component {
         this.loginPage = React.createRef();
         this.showMenuPanel = this.showMenuPanel.bind(this);
         this.setWrapper = this.setWrapper.bind(this);
-        this.handleOutClick = this.handleOutClick.bind(this)
+        this.handleOutClick = this.handleOutClick.bind(this);
     }
 
     state = {
@@ -30,21 +30,13 @@ class Header extends Component {
         activePanel: '',
         showLoginDialog: false
 
-    };
-
-    componentDidMount() {
-        //document.addEventListener('mousedown', this.handleOutClick);
     }
-
     setWrapper(node) {
         this.wrapperRef = node;
-        //console.log("cham")
-
     }
 
     handleOutClick(event) {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-            //alert('You clicked outside of me!');
             this.setState({ activePanel: '' })
             console.log('ci')
         }
@@ -69,7 +61,6 @@ class Header extends Component {
     showLogin = () => {
         this.loginPage.current.show();
     }
-
 
     render() {
         const menuClass = this.state.showMenu ? " fa-times" : "fa-bars";

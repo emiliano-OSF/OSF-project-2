@@ -65,7 +65,6 @@ class PageBody extends Component {
     }
     
     loadMoreProd = () => {
-        //console.log("carregou");
         let lista = this.state.products;
         lista = [...lista, ...lista];
 
@@ -156,7 +155,7 @@ class PageBody extends Component {
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
                                     </p>
-                                    <a>VIEW MORE</a>
+                                    <a href={this.state.landingPage}>VIEW MORE</a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -179,7 +178,7 @@ class PageBody extends Component {
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
                                     </p>
-                                    <a>VIEW MORE</a>
+                                    <a href={this.state.landingPage}>VIEW MORE</a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
@@ -201,7 +200,7 @@ class PageBody extends Component {
                                         Improve business peformanceand the user experience with the right mix of IoT
                                         technology and processes.
                                     </p>
-                                    <a>VIEW MORE</a>
+                                    <a href={this.state.landingPage}>VIEW MORE</a>
                                 </div>
                             </Carousel.Caption>
                         </Carousel.Item>
