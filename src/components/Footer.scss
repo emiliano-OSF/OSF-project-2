@@ -22,10 +22,10 @@ footer{
         width: 100%;
     }
     
-    .footer__menu{
+    .footer-menu{
         width: 100%;
 
-        .footer__menu--op{
+        .footer-menu--op{
             height: 30px;
             display: flex;
             flex-direction: column;
@@ -60,9 +60,12 @@ footer{
                 color: black;
             }
         }
+        .contact-md{
+            display: none;
+        }
     }
 
-    .footer__social-media{
+    .footer-social-media{
         margin: 20px 0px 50px;
         display: flex;
         flex-direction: row;
@@ -76,7 +79,19 @@ footer{
 }
 
 @media only screen and(min-width: 320px){
+    
+}
+
+@media only screen and(min-width: 480px){
     .footer{
-        color: tomato
+        .footer-menu{
+            .contact-sm{
+                display: none;
+            }
+            .contact-md{
+                color: tomato;
+                display: block;
+            }
+        }
     }
 }

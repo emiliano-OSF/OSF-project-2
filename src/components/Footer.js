@@ -18,8 +18,8 @@ class Footer extends Component {
                     </span>
                 </div>
 
-                <div className="footer__menu">
-                    <div className="footer__menu--op">
+                <div className="footer-menu contact-sm">
+                    <div className="footer-menu--op contact-sm">
                         <span>Contact <span className="fas fa-caret-down"></span></span>
                         <p className="footer__contact">
                             Headquarters:
@@ -28,7 +28,16 @@ class Footer extends Component {
                             <a href="tel:+1-888-548-4344">+1 (888) 548-4344</a>
                         </p>
                     </div>
-                    <div className="footer__menu--op">
+                    <div className="footer-menu--op contact-md">
+                        <span>Cuuuuuuuuu <span className="fas fa-caret-down"></span></span>
+                        <p className="footer__contact">
+                            Headquarters:
+                            5600, Blvd. des Galeries, Bur 530 Québec, Québec G2K 2H6 <br />
+                            <a href="mailto:contact@osf-global.com">contact@osf-global.com</a>
+                            <a href="tel:+1-888-548-4344">+1 (888) 548-4344</a>
+                        </p>
+                    </div>
+                    <div className="footer-menu--op">
                         <div className="footer-category">
                             <span className="footer-category">Categories <span className="fas fa-caret-down"></span></span>
                             <a className="footer-category__op" href={this.state.notFoundPage}>Accessories</a>
@@ -41,7 +50,7 @@ class Footer extends Component {
                             <a className="footer-category__op" href={this.state.notFoundPage}>Food</a>
                         </div>
                     </div>
-                    <div className="footer__menu--op">
+                    <div className="footer-menu--op">
                         <div className="footer-category">
                             <span className="footer-category">About <span className="fas fa-caret-down"></span></span>
                             <a className="footer-category__op" href={this.state.notFoundPage}>About us</a>
@@ -51,7 +60,7 @@ class Footer extends Component {
 
                         </div>
                     </div>
-                    <div className="footer__social-media" >
+                    <div className="footer-social-media" >
                         <a className="social-media__icon" href="https://www.facebook.com/OSFGlobalServices" target="blank">
                             <img src={require("../assets/img/icons/social media/facebook_icon.svg")} />
                         </a>
