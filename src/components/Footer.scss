@@ -63,6 +63,9 @@ footer{
         .contact-md{
             display: none;
         }
+        .footer-menu--md{
+            display: none;
+        }
     }
 
     .footer-social-media{
@@ -83,15 +86,60 @@ footer{
 }
 
 @media only screen and(min-width: 480px){
-    .footer{
+    footer{
         .footer-menu{
             .contact-sm{
                 display: none;
             }
             .contact-md{
-                color: tomato;
-                display: block;
+                display: flex;
+                height: 160px;
+                &:hover{
+                    cursor: auto;
+                    height: 160px;
+                }
+
+                p{
+                    padding-left: 0;
+                }
             }
         }
     }
+}
+
+@media only screen and(min-width: 768px){
+    footer{
+        .footer-menu{
+            display: flex;
+            flex-direction: row;
+
+            .footer-menu--op{
+                width: 25vw;
+                margin-right: 13px;
+                
+            }
+        }
+        
+    }
+}
+
+@media only screen and(min-width: 1280px){
+    footer{
+        .footer-menu{
+
+            .footer-menu--sm{
+                display: none;
+            }
+            .footer-menu--md{
+                display: flex;
+                height: 200px;
+
+                a{
+                    margin: 0 3px;
+                }
+            }
+
+        }
+    }
+
 }
