@@ -9,6 +9,8 @@ export default class LoginAndDialog extends Component {
 
     constructor() {
         super();
+
+        /**  binding the methods to get the correct object context  **/ 
         this.showPassword = this.showPassword.bind(this);
         this.validatePassword = this.validatePassword.bind(this)
     }
@@ -22,12 +24,13 @@ export default class LoginAndDialog extends Component {
         warnings: []
     }
 
-    show() {
+    /* show() {
         this.setState({
             showLogIn: true
         })
-    }
+    } */
 
+    /**  toggle to show the login dialog modal on the page  **/
     toggle = () => {
         this.setState({
             showLogIn: false
@@ -35,9 +38,9 @@ export default class LoginAndDialog extends Component {
     }
 
 
-    //Preparando para validar a senha
+    /**  validate the password string  **/ 
     validatePassword(event) {
-        const validation = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})");
+        const validation = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})"); /**  RegEx to the password rules  **/
         if (validation.test(event.target.value)) {
             console.log("passou", event.target.value);
             this.setState({
@@ -53,9 +56,11 @@ export default class LoginAndDialog extends Component {
         })
     }
 
+
+    /**  toggle on the password field to show or not its value  **/ 
     showPassword() {
         this.setState({
-            showPass: this.state.showPass == "password" ? 'text' : 'password'
+            showPass: this.state.showPass == "password" ? 'text' : 'password'  //changing the form type
         })
     }
 

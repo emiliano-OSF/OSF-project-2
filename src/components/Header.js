@@ -15,7 +15,7 @@ import cartIcon from "../assets/img/icons/bag.svg"
 // }
 
 class Header extends Component {
-    constructor() {
+    constructor(props) {
         super();
         this.loginPage = React.createRef();
         this.showMenuPanel = this.showMenuPanel.bind(this);
@@ -28,9 +28,15 @@ class Header extends Component {
         notFoundPage: "/home/404",
         homePage: '/home',
         activePanel: '',
-        showLoginDialog: false
+        showLoginDialog: false,
+        favNumber: 0
 
     }
+
+    componentDidMount(){
+        console.log(this.props)
+    }
+
     setWrapper(node) {
         this.wrapperRef = node;
     }

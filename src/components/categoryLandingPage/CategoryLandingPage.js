@@ -10,6 +10,8 @@ export default class CategoryLandingPage extends Component {
         isLoading: true
     }
 
+
+    /**  method that request the products values and sets on the state  **/
     componentDidMount() {
         try {
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
@@ -25,6 +27,8 @@ export default class CategoryLandingPage extends Component {
         }
     }
 
+
+    /**  load the products on the section returning an elent  **/
     loadProducts = () => {
         return (
             this.state.products.map((product) => {

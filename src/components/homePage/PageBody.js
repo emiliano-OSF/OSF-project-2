@@ -15,17 +15,32 @@ import Clipboard from "../../assets/img/icons/clipboard.svg";
 class PageBody extends Component {
 
     state = {
+        cloudProducts: [],
         products: [],
+        isLoadingCloud: true,
         featuredProducts: [],
         isLoadingFeatured: true,
         isLoading: true,
-        isError: false,
         loadProd: true,
+        isError: false,
         landingPage: '/home/category-landing-page'
     }
 
+
+    /**  requisition when the component is mounted to get the products ant the featured products
+     *  in an git API fake database that returns an JSON with the values  **/
     componentDidMount() {
         try {
+
+            fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/cloud")
+                .then(res => res.json())
+                .then(data => {
+                    this.setState({
+                        cloudProducts: data,
+                        isLoadingPop: false
+                    })
+                })
+
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
                 .then(res => res.json())
                 .then(data => {
@@ -48,6 +63,38 @@ class PageBody extends Component {
         }
     }
 
+    loadCloudSolutions() {
+        return (
+            <Carousel controls={false}>
+                {this.state.cloudProducts.map((cloud) => {
+                    return (<Carousel.Item>
+                        <img
+                            className=" w-100 prod-img__320"
+                            src={require(`../../assets/img/home/cloud/prod_${cloud.id}.png`)}
+                            alt={cloud.title}
+                        />
+                        <img
+                            className=" w-100 prod-img__768"
+                            src={require(`../../assets/img/home/cloud/prod_${cloud.id}.png`)}
+                            alt={cloud.title}
+                        />
+                        <Carousel.Caption>
+                            <div className="slide__info" className={`slide__info slide__align-${cloud.id}`}>
+                                <h4 className={`align-${cloud.id}`}>{cloud.title}</h4>
+                                <p className={`align-${cloud.id}`}>{cloud.text}</p>
+                                <a href={this.state.landingPage}>VIEW MORE</a>
+                            </div>
+                        </Carousel.Caption>
+
+                    </Carousel.Item>)
+                })}
+
+            </Carousel>
+        )
+
+    }
+
+    /**  method to load the procducts on the popular products section on screen  **/
     loadPopProdutcs() {
         return (
             this.state.products.map((product) => {
@@ -63,7 +110,9 @@ class PageBody extends Component {
             })
         )
     }
-    
+
+
+    /**  to load more products on the popular products/itens section by clicking on the button  **/
     loadMoreProd = () => {
         let lista = this.state.products;
         lista = [...lista, ...lista];
@@ -74,6 +123,8 @@ class PageBody extends Component {
         })
     }
 
+
+    /**  load the featured products on its carousel slider section  **/
     loadFeaturedProducts = () => {
         return (
             <ItemsCarousel
@@ -88,9 +139,7 @@ class PageBody extends Component {
                 activeItemIndex={this.state.activeItemIndex}
                 requestToChangeActive={value => this.setState({ activeItemIndex: value })}
                 rightChevron={<span className='fas fa-angle-right'></span>}
-                leftChevron={<span className='fas fa-angle-left'></span>}
-
-            >
+                leftChevron={<span className='fas fa-angle-left'></span>}>
                 {Array.from(this.state.featuredProducts).map((product, i) =>
 
                     <a href={this.state.landingPage} className="featured-products__tile">
@@ -104,108 +153,18 @@ class PageBody extends Component {
         )
     }
 
-   // createChildren = n => range(n).map(i => <div key={i} style={{ height: 200, background: '#333' }}>{i}</div>);
-
+    /**  to change the active item on the carousel slider -> featured products section  **/
     changeActiveItem = (activeItemIndex) => this.setState({ activeItemIndex });
-
 
     render() {
         return (
             <div className="wrapper">
-                <section className="cloud-solution__container row" >
-                    <Carousel className="" controls={false}>
-                        <Carousel.Item>
-                            <img
-                                className=" w-100 prod-img__320"
-                                src={ProdPhoto}
-                                alt="First slide"
-                            />
-                            <img
-                                className="w-100 prod-img__768"
-                                src={require("../../assets/img/home/768/prod_01.png")}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <div className="slide__info">
-                                    <h4>Control and manage any device with cloud solutions </h4>
-                                    <p>
-                                        Improve business peformanceand the user experience with the right mix of IoT
-                                        technology and processes.
-                                    </p>
-                                    <a href={this.state.landingPage}>VIEW MORE</a>
-                                </div>
-                            </Carousel.Caption>
-                        </Carousel.Item>
+                <button onClick={this.props.increaseFavNumber}>Aumentar</button>
+                <section className="cloud-solution__container row">
+                    {
+                        !this.state.isLoadingPop ? this.loadCloudSolutions() : <SyncLoader color="#123abc" />
+                    }
 
-                        <Carousel.Item>
-                            <img
-                                className=" w-100 prod-img__320"
-                                src={ProdPhoto}
-                                alt="First slide"
-                            />
-                            <img
-                                className="w-100 prod-img__768"
-                                src={require("../../assets/img/home/768/lady-full.png")}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <div className="slide__info">
-                                    <h4>Control and manage any device with cloud solutions </h4>
-                                    <p>
-                                        Improve business peformanceand the user experience with the right mix of IoT
-                                        technology and processes.
-                                    </p>
-                                    <a href={this.state.landingPage}>VIEW MORE</a>
-                                </div>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-
-                        <Carousel.Item>
-                            <img
-                                className=" w-100 prod-img__320"
-                                src={ProdPhoto}
-                                alt="First slide"
-                            />
-                            <img
-                                className="w-100 prod-img__768"
-                                src={require("../../assets/img/home/768/lady-full.png")}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <div className="slide__info">
-                                    <h4>Control and manage any device with cloud solutions </h4>
-                                    <p>
-                                        Improve business peformanceand the user experience with the right mix of IoT
-                                        technology and processes.
-                                    </p>
-                                    <a href={this.state.landingPage}>VIEW MORE</a>
-                                </div>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className=" w-100 prod-img__320"
-                                src={ProdPhoto}
-                                alt="First slide"
-                            />
-                            <img
-                                className="w-100 prod-img__768"
-                                src={require("../../assets/img/home/768/lady-full.png")}
-                                alt="First slide"
-                            />
-                            <Carousel.Caption>
-                                <div className="slide__info">
-                                    <h4>Control and manage any device with cloud solutions </h4>
-                                    <p>
-                                        Improve business peformanceand the user experience with the right mix of IoT
-                                        technology and processes.
-                                    </p>
-                                    <a href={this.state.landingPage}>VIEW MORE</a>
-                                </div>
-                            </Carousel.Caption>
-                        </Carousel.Item>
-
-                    </Carousel>
                     <div className="promotion-panel">
                         <div className="sale-50">
                             <img src={require("../../assets/img/home/768/sale-50.png")} alt="Promotion" />
@@ -221,7 +180,6 @@ class PageBody extends Component {
 
                 <section className="popular-items-320__container">
                     <h2>Popular Items</h2>
-
                     <div className="popular-items__container-wrapper">
                         <Carousel controls={false}>
                             {this.state.products.map((product) => {

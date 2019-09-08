@@ -9,10 +9,13 @@ export default class Breadcrumb extends Component {
         path: window.location.pathname
     }
 
+    /** method to navigate considering the element clicked **/ 
     navigateTo(e) {
         window.location = e.target.id;
     }
 
+
+    /**  examinate the path string and return the breadcrumb array mounted to create the track  **/ 
     mountBreadcrumb() {
         let paths = this.state.path.split('/').filter((e)=>{return e});
 
@@ -47,7 +50,7 @@ export default class Breadcrumb extends Component {
     }
 
     render() {
-        if(this.state.path == "/home") return null
+        if(this.state.path == "/home") return null 
         return (
             <div className="breadcrumb__container">
                 {this.state.path == '/home' ? null : this.mountBreadcrumb()}

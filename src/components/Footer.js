@@ -8,6 +8,8 @@ class Footer extends Component {
     }
 
     render() {
+
+        /** get the current date to pass the year to the copyrights date section **/ 
         const year = new Date();
         return (
             <footer>
