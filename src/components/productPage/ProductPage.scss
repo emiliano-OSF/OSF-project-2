@@ -30,6 +30,7 @@ $secondary-darker-color: #45413e;
 
 .product-page__prod-panel{
     width: 100%;
+    margin-bottom: 20px;
     padding: 10px 0;
     border-radius: 7px;
     @include d-flex-col-center();
@@ -37,9 +38,23 @@ $secondary-darker-color: #45413e;
 
     .product-page__img-panel{
         @include d-flex-col-center();
+        position: relative;
 
         .product-page__main-img{
-            width: 100%
+            width: 100%;
+        }
+
+        .expand{
+            position: absolute;
+            font-size: 18px;
+            top: 10px;
+            left: 10px;
+            color: #84bc22;
+            cursor: pointer;
+
+            &:hover{
+                color: #5d8f07;
+            }
         }
         
         .product-page__thumbnail-track{
@@ -132,5 +147,13 @@ $secondary-darker-color: #45413e;
             }
         }
     }
+}
+
+.advantages{
+    width: 100vw;
+}
+
+@media only screen and(min-width: 320px){
 
 }
+

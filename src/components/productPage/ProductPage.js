@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import ReadMoreReact from 'read-more-react';
+import Modal from '@material-ui/core/Modal';
+
+
+import DeliveryPack from '../../assets/img/icons/delivery-package.svg';
+import Arrows from '../../assets/img/icons/triangular-arrows.svg';
+import Clipboard from '../../assets/img/icons/clipboard.svg';
+
 import './ProductPage.scss';
 
 
@@ -9,12 +16,18 @@ export default class ProductPage extends Component {
         super();
         this.changeMainImg = this.changeMainImg.bind(this);
         this.changeQtdValue = this.changeQtdValue.bind(this);
+        this.expandMainImg = this.expandMainImg.bind(this);
     }
 
     state = {
         activeImg: 1,
         productPrice: 299.99,
-        qtdValue: 1
+        qtdValue: 1,
+        expandMainImg: false
+    }
+
+    componentDidMount(){
+
     }
 
     changeMainImg(node) {
@@ -23,6 +36,18 @@ export default class ProductPage extends Component {
         })
     }
 
+    expandMainImg(){
+        
+        this.setState({
+            expandMainImg: true
+        })
+    }
+
+    toggle = () => {
+        this.setState({
+            expandMainImg: false
+        })
+    }
 
     /**method to change the qtdValue state**/
     changeQtdValue(node) {
@@ -66,7 +91,10 @@ export default class ProductPage extends Component {
                 <div className="product-page__prod-panel">
                     <div className="product-page__img-panel">
                         <img className="product-page__main-img" src={require(`../../assets/img/product-detailed/prod_0${this.state.activeImg}.jpg`)} />
-
+                        <a className="expand fas fa-expand-arrows-alt" onClick={this.expandMainImg}></a>
+                        <Modal open={this.state.expandMainImg} onClose={this.toggle}>
+                            <img src={require('../../assets/img/product-detailed/prod_01.jpg')}/>
+                        </Modal>
                         <div className="product-page__thumbnail-track">
                             <img
                                 id="1"
@@ -140,6 +168,37 @@ export default class ProductPage extends Component {
                         </div>
                     </div>
                 </div>
+                
+                <section className="advantages">
+                    <div className="advantages__panel">
+                        <div className="advantages__icon">
+                            <img src={DeliveryPack} alt="Delivery Package" />
+                        </div>
+                        <div className="advantages__info">
+                            <h4>Focus</h4>
+                            <p>Our unwavering focus on superior service delivery and building next generation competencies</p>
+                        </div>
+                    </div>
+                    <div className="advantages__panel reversed">
+                        <div className="advantages__icon">
+                            <img src={Arrows} alt="Triangular Arrows" />
+                        </div>
+                        <div className="advantages__info">
+                            <h4>Method</h4>
+                            <p>A standardized methodology designed to deliver measurable business results and predictable costs.</p>
+                        </div>
+                    </div>
+                    <div className="advantages__panel">
+                        <div className="advantages__icon">
+                            <img src={Clipboard} alt="Clipboard" />
+                        </div>
+                        <div className="advantages__info">
+                            <h4>Knowledge</h4>
+                            <p>A highly skilled, proactive workforce that reliably improves each client’s ROI while mitigating their business risk</p>
+                        </div>
+                    </div>
+                </section>
+            
             </section>
         )
     }
