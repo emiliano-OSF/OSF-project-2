@@ -99,11 +99,16 @@ class PageBody extends Component {
         return (
             this.state.products.map((product) => {
                 return (
+                    // <div className="popular-items-768__prod-tile" onMouseEnter={()=>console.log("mouse em cima")} onMouseLeave={()=> console.log("mouse fora")}>
                     <div className="popular-items-768__prod-tile">
                         <img src={require(`../../assets/img/products/prod-${product.id}.png`)} alt={product.name} />
                         <div className="prod-info">
                             <p>{product.name}</p>
                             <span>{product.price}</span>
+                        </div>
+                        <div className="prod-tile__overlay">
+                            <a className="fas fa-plus"></a>
+                            <a className="fas fa-heart" onClick={this.props.increaseFavNumber}></a>
                         </div>
                     </div>
                 )
@@ -159,7 +164,7 @@ class PageBody extends Component {
     render() {
         return (
             <div className="wrapper">
-                <button onClick={this.props.increaseFavNumber}>Aumentar</button>
+                {/* <button onClick={this.props.increaseFavNumber}>Aumentar</button> */}
                 <section className="cloud-solution__container row">
                     {
                         !this.state.isLoadingPop ? this.loadCloudSolutions() : <SyncLoader color="#123abc" />

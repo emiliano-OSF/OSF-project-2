@@ -32,10 +32,9 @@ class Header extends Component {
         favNumber: 0
 
     }
-
-    componentDidMount(){
-        console.log(this.props)
-    }
+    /* componentWillReceiveProps(value){
+        this.setState(value)
+    } */
 
     setWrapper(node) {
         this.wrapperRef = node;
@@ -106,7 +105,11 @@ class Header extends Component {
                         <nav className="headernav__user-menu">
                             <a className="fas fa-search" ></a>
                             <a className="far fa-user" onClick={this.showLogin}></a>
-                            <a className="far fa-heart"></a>
+                            <a className="far fa-heart">
+                                <span>
+                                    {this.props.favNumber}
+                                </span>
+                            </a>
                             <a className="far fa-envelope"></a>
                         </nav>
 
@@ -344,7 +347,11 @@ class Header extends Component {
                 <div className="headernav__option--userfixed col-12">
                     <a className="fas fa-search" ></a>
                     <a className="far fa-user" onClick={this.showLogin}></a>
-                    <a className="far fa-heart"></a>
+                    <a className="far fa-heart">
+                        <span>
+                            {this.props.favNumber}
+                        </span>
+                    </a>
                     <a className="far fa-envelope"></a>
 
                 </div>

@@ -12,7 +12,7 @@ import CategoryLandingPage from './categoryLandingPage/CategoryLandingPage';
 class App extends Component {
     constructor() {
         super();
-        this.state ={
+        this.state = {
             favNumber: 0
         }
         this.increaseFavNumber = this.increaseFavNumber.bind(this);
@@ -23,11 +23,12 @@ class App extends Component {
     increaseFavNumber() {
         console.log("foi?")
         this.setState({
-            favNumber: this.state.favNumber+=1
+            favNumber: this.state.favNumber += 1
         })
     }
 
-    setFavnumber(value){
+    /**  method to pass to PageBody for changing the values of the favorite property in Header  **/
+    setFavnumber(value) {
         this.setState({
             favNumber: value
         })
@@ -42,10 +43,30 @@ class App extends Component {
                 {/** Router component to make navigation on the component pages **/}
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/" exact={true} component={()=> <PageBody increaseFavNumber={this.increaseFavNumber}/>} />
-                        <Route path="/home" exact={true} component={()=> <PageBody increaseFavNumber={this.increaseFavNumber}/>}/>} />
-                        <Route path="/home/404" component={()=> <NotFoundPage/>} />
-                        <Route path="/home/category-landing-page" component={()=> <CategoryLandingPage/>} />
+
+                        
+                        <Route path="/" exact={true} component={() =>
+                            <PageBody
+
+                                /**  passing the method to execute and change the attribute on Header prop favNumber 
+                                 * here we have two PageBody to prevent error on the first render of the page
+                                **/
+                                increaseFavNumber={this.increaseFavNumber}
+                            />}
+                        />
+                        <Route path="/home" exact={true} component={() =>
+                            <PageBody
+
+                                /**  passing the method to execute and change the attribute on Header prop favNumber  **/
+                                increaseFavNumber={this.increaseFavNumber}
+                            />}
+                        />
+                        <Route path="/home/404" component={() =>
+                            <NotFoundPage />}
+                        />
+                        <Route path="/home/category-landing-page" component={() =>
+                            <CategoryLandingPage />}
+                        />
 
                     </Switch>
                     {/* <PageBody /> */}
