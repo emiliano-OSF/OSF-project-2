@@ -6,10 +6,11 @@ import PageBody from './homePage/PageBody';
 import Footer from './Footer';
 import NotFoundPage from './notFoundPage/NotFoundPage';
 import CategoryLandingPage from './categoryLandingPage/CategoryLandingPage';
+import ProductPage from './productPage/ProductPage'
 
 
 
-class App extends Component {
+export default class App extends Component {
     constructor() {
         super();
         this.state = {
@@ -43,8 +44,6 @@ class App extends Component {
                 {/** Router component to make navigation on the component pages **/}
                 <BrowserRouter>
                     <Switch>
-
-                        
                         <Route path="/" exact={true} component={() =>
                             <PageBody
 
@@ -67,9 +66,11 @@ class App extends Component {
                         <Route path="/home/category-landing-page" component={() =>
                             <CategoryLandingPage />}
                         />
+                        <Route path="/home/product-detailed-page" component={() =>
+                            <ProductPage />}
+                        />
 
                     </Switch>
-                    {/* <PageBody /> */}
                 </BrowserRouter>
 
                 <Footer />
@@ -77,6 +78,4 @@ class App extends Component {
         )
     }
 }
-
-export default App;
 

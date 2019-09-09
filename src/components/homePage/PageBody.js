@@ -97,6 +97,7 @@ class PageBody extends Component {
     /**  method to load the procducts on the popular products section on screen  **/
     loadPopProdutcs() {
         return (
+            
             this.state.products.map((product) => {
                 return (
                     // <div className="popular-items-768__prod-tile" onMouseEnter={()=>console.log("mouse em cima")} onMouseLeave={()=> console.log("mouse fora")}>
@@ -113,6 +114,8 @@ class PageBody extends Component {
                     </div>
                 )
             })
+            
+            
         )
     }
 
