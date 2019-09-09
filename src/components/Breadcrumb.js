@@ -33,7 +33,6 @@ export default class Breadcrumb extends Component {
                     }
                 })
 
-
                 let sentence = word.join("").replace(/([A-Z])/g, " $1");
                 console.log(sentence)
                 let finalSentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
