@@ -15,10 +15,12 @@ export default class Breadcrumb extends Component {
     }
 
 
-    /**  examinate the path string and return the breadcrumb array mounted to create the track  **/
+    /**  
+     * examinate the path string and return the breadcrumb array mounted to create the track
+    **/
     mountBreadcrumb() {
+        /** pliting and removing empty spaces of the array  **/
         let paths = this.state.path.split('/').filter((e) => { return e });
-        console.log(this.state.path)
 
         return (
 
@@ -33,13 +35,11 @@ export default class Breadcrumb extends Component {
                     }
                 })
 
-
                 let sentence = word.join("").replace(/([A-Z])/g, " $1");
-                console.log(sentence)
                 let finalSentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
 
                 if ((arr.length - 1) == i) {
-                    /* returning the last element with the class witch represents it */
+                    /** returning the last element with the class witch represents it **/
                     return (
                         <h4 className="last-crumb">
                             <span>/</span>
@@ -55,10 +55,8 @@ export default class Breadcrumb extends Component {
                         </h4>
                     )
                 }
-
-                console.log(crumb)
+                /**  adding the / to the normal element on the bread track :)  **/
                 return (
-
                     <h4 id={`/${crumb}`} onClick={this.navigateTo}>
                         {finalSentence}
                     </h4>

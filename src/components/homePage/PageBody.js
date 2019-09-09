@@ -97,7 +97,7 @@ class PageBody extends Component {
     /**  method to load the procducts on the popular products section on screen  **/
     loadPopProdutcs() {
         return (
-            
+
             this.state.products.map((product) => {
                 return (
                     // <div className="popular-items-768__prod-tile" onMouseEnter={()=>console.log("mouse em cima")} onMouseLeave={()=> console.log("mouse fora")}>
@@ -114,8 +114,8 @@ class PageBody extends Component {
                     </div>
                 )
             })
-            
-            
+
+
         )
     }
 
@@ -223,12 +223,13 @@ class PageBody extends Component {
 
                 </section>
 
-                <section className="banner-osf">
+                <section className="banner-osf" onClick={()=> window.location = "/home/product-detailed-page"}>
                     <div className="banner-osf__info" >
                         <h2>Banner OSF Theme</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </div>
                     <img src={require("../../assets/img/home/banner-osf.png")} alt="Banner OSF" />
+
                 </section>
 
                 <section className="featured-products">
@@ -238,28 +239,9 @@ class PageBody extends Component {
                     <span>Unde omnis iste natus error sit voluptatem</span>
                     <div className="featured-products__slider" style={{ "padding": "0 60px", "maxWidth": 1000, "margin": "0 auto", 'height': '400px' }}>
                         {
+                            /**  wait until fetch the data - featured products slider  **/
                             !this.state.isLoadingFeatured ? this.loadFeaturedProducts() : <SyncLoader color="white" />
                         }
-                        {/* <ItemsCarousel
-                            gutter={12}
-                            activePosition={'center'}
-                            chevronWidth={60}
-                            numberOfCards={4}
-                            slidesToScroll={4}
-                            outsideChevron={true}
-                            showSlither={false}
-                            firstAndLastGutter={false}
-                            activeItemIndex={this.state.activeItemIndex}
-                            requestToChangeActive={value => this.setState({ activeItemIndex: value })}
-                            rightChevron={<span>tras</span>}
-                            leftChevron={<span>Frente</span>}
-
-                        >
-                            {Array.from(this.state.featuredProducts).map((_, i) =>
-
-                                <img key={i} src={require(`../../assets/img/home/featured/prod_${_.id}.png`)} />
-                            )}
-                        </ItemsCarousel> */}
                     </div>
                 </section>
 
