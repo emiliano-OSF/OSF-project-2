@@ -62,6 +62,7 @@ export default class ProductPage extends Component {
 
         return (
             <section className="product-page">
+                <h1>V-Neck Cardigan</h1>
                 <div className="product-page__prod-panel">
                     <div className="product-page__img-panel">
                         <img className="product-page__main-img" src={require(`../../assets/img/product-detailed/prod_0${this.state.activeImg}.jpg`)} />
@@ -121,7 +122,23 @@ export default class ProductPage extends Component {
                             />
                         </p>
                     </div>
-                    <div className=""></div>
+                    <div className="product-page__social-media">
+                        <span>Share</span>
+                        <div>
+                            <a href="https://www.facebook.com/OSFGlobalServices" target="blank">
+                                <img src={require("../../assets/img/icons/social media/facebook_icon.svg")} />  
+                            </a >
+                            <a href="https://www.google.com.br/" target="blank">
+                                <img src={require("../../assets/img/icons/social media/google_plus_icon.svg")} />  
+                            </a>
+                            <a  href="https://br.pinterest.com/" target="blank">
+                                <img src={require("../../assets/img/icons/social media/pinterest_icon.svg")}/>  
+                            </a>
+                            <a href="https://twitter.com/osfglobal" target="blank">
+                                <img src={require("../../assets/img/icons/social media/twitter_icon.svg")} />  
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </section>
         )

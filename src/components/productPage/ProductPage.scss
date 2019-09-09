@@ -12,11 +12,20 @@ $secondary-darker-color: #45413e;
     align-items: center;
 }
 
+@mixin d-flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 .product-page{
     width: 100vw;
     padding: 10px 20px;
     @include d-flex-col-center();
-    background-color: #e8e2d6
+    background-color: #e8e2d6;
+    h1{
+        margin-bottom: 40px
+    }
 }
 
 .product-page__prod-panel{
@@ -99,6 +108,26 @@ $secondary-darker-color: #45413e;
             .read-more-button{
                 color: #84bc22;
                 text-transform: capitalize;
+                cursor: pointer;
+            }
+        }
+    }
+    .product-page__social-media{
+        width: 100%;
+        padding: 20px;
+        @include d-flex-row-center();
+
+        span{
+            margin-right: 30px;
+            color: #7e7e7e;
+            font-size: 14px;
+        }
+
+        div{
+            width: 200px;
+            
+            a{
+                margin-left: 20px;
                 cursor: pointer;
             }
         }
