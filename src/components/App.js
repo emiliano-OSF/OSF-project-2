@@ -2,8 +2,10 @@ import React, { Component, ReactDOM } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './Header';
 import Breadcrumb from './Breadcrumb';
-import PageBody from './homePage/PageBody';
+import CookiePanel from '../components/cookiesPanel/CookiesPanel';
 import Footer from './Footer';
+
+import PageBody from './homePage/PageBody';
 import NotFoundPage from './notFoundPage/NotFoundPage';
 import CategoryLandingPage from './categoryLandingPage/CategoryLandingPage';
 import ProductPage from './productPage/ProductPage'
@@ -72,7 +74,7 @@ export default class App extends Component {
 
                     </Switch>
                 </BrowserRouter>
-
+                <CookiePanel />
                 <Footer />
             </div>
         )
