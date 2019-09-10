@@ -4,15 +4,7 @@ import "./Header.scss";
 
 import logo from "../assets/img/icon-osf.png"
 import logoB from "../assets/img/logo-osf.png";
-import searchIcon from "../assets/img/icons/search.svg";
-import userIcon from "../assets/img/icons/user.svg";
-import wishIcon from "../assets/img/icons/heart.svg";
-import cartIcon from "../assets/img/icons/bag.svg"
 
-// const Call = () =>{
-//     const match = useMediaQuery("min-width: 500px");
-//     return (<a>{match}</a>);
-// }
 
 class Header extends Component {
     constructor(props) {
@@ -111,7 +103,7 @@ class Header extends Component {
                                 </span>
                             </a>
                             <a className="fas fa-shopping-bag">
-                                <span>{this.props.favNumber}</span>
+                                <span>{this.props.cartNumber}</span>
                             </a>
                         </nav>
 

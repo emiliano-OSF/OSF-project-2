@@ -83,7 +83,7 @@ export default class LoginAndDialog extends Component {
 
                             <div className="password-field">
                                 <input id="password" type={this.state.showPass} placeholder="Enter your password" onChange={this.validatePassword} />
-                                <a className={`far fa-eye${this.state.showPass == "password" ? "" : "-slash"}`} onClick={this.showPassword}></a>
+                                <a className={`far fa-eye${this.state.showPass === "password" ? "" : "-slash"}`} onClick={this.showPassword}></a>
                             </div>
 
                             <small style={{ "display": this.state.inputWarn ? 'block' : 'none' }}>

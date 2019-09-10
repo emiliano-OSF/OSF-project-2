@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import Carousel from 'react-bootstrap/Carousel';
 import SyncLoader from "react-spinners/SyncLoader";
 import ItemsCarousel from 'react-items-carousel';
-import range from 'lodash/range';
 import "./PageBody.scss"
 
-//import ProdPhoto from "../assets/img/home/768/lady-full.png";
-import ProdPhoto from "../../assets/img/home/768/lady-full.png";
 import DeliveryPack from "../../assets/img/icons/delivery-package.svg";
 import Arrows from "../../assets/img/icons/triangular-arrows.svg";
 import Clipboard from "../../assets/img/icons/clipboard.svg";
@@ -22,8 +20,7 @@ class PageBody extends Component {
         isLoadingFeatured: true,
         isLoading: true,
         loadProd: true,
-        isError: false,
-        landingPage: '/home/category-landing-page'
+        isError: false
     }
 
 
@@ -66,8 +63,8 @@ class PageBody extends Component {
     loadCloudSolutions() {
         return (
             <Carousel controls={false}>
-                {this.state.cloudProducts.map((cloud) => {
-                    return (<Carousel.Item>
+                {this.state.cloudProducts.map((cloud, i) => {
+                    return (<Carousel.Item key={cloud.title + i}>
                         <img
                             className=" w-100 prod-img__320"
                             src={require(`../../assets/img/home/cloud/prod_${cloud.id}.png`)}
@@ -79,10 +76,10 @@ class PageBody extends Component {
                             alt={cloud.title}
                         />
                         <Carousel.Caption>
-                            <div className="slide__info" className={`slide__info slide__align-${cloud.id}`}>
+                            <div className={`slide__info slide__align-${cloud.id}`}>
                                 <h4 className={`align-${cloud.id}`}>{cloud.title}</h4>
                                 <p className={`align-${cloud.id}`}>{cloud.text}</p>
-                                <a href={this.state.landingPage}>VIEW MORE</a>
+                                <a  onClick={()=>this.props.history.push("/home/category-landing-page")}>VIEW MORE</a>
                             </div>
                         </Carousel.Caption>
 
@@ -98,17 +95,16 @@ class PageBody extends Component {
     loadPopProdutcs() {
         return (
 
-            this.state.products.map((product) => {
+            this.state.products.map((product, i) => {
                 return (
-                    // <div className="popular-items-768__prod-tile" onMouseEnter={()=>console.log("mouse em cima")} onMouseLeave={()=> console.log("mouse fora")}>
-                    <div className="popular-items-768__prod-tile">
+                    <div className="popular-items-768__prod-tile" key={product.name + i}>
                         <img src={require(`../../assets/img/products/prod-${product.id}.png`)} alt={product.name} />
                         <div className="prod-info">
                             <p>{product.name}</p>
                             <span>{product.price}</span>
                         </div>
                         <div className="prod-tile__overlay">
-                            <a className="fas fa-plus"></a>
+                            <a className="fas fa-plus" onClick={()=> this.props.setCartNumber()}></a>
                             <a className="fas fa-heart" onClick={this.props.increaseFavNumber}></a>
                         </div>
                     </div>
@@ -150,7 +146,7 @@ class PageBody extends Component {
                 leftChevron={<span className='fas fa-angle-left'></span>}>
                 {Array.from(this.state.featuredProducts).map((product, i) =>
 
-                    <a href={this.state.landingPage} className="featured-products__tile">
+                    <a onClick={()=> this.props.history.push("/home/category-landing-page")} className="featured-products__tile" key={product.title + i}>
                         <img key={i} src={require(`../../assets/img/home/featured/prod_${product.id}.png`)} />
                         <p>{product.title}</p>
                         <span>{product.category}</span>
@@ -192,7 +188,7 @@ class PageBody extends Component {
                         <Carousel controls={false}>
                             {this.state.products.map((product) => {
                                 return (
-                                    <Carousel.Item >
+                                    <Carousel.Item key={product.url} >
                                         <img
                                             className="d-block w-100"
                                             src={require(`../../assets/img/products/prod-${product.id}.png`)}
@@ -223,7 +219,7 @@ class PageBody extends Component {
 
                 </section>
 
-                <section className="banner-osf" onClick={()=> window.location = "/home/product-detailed-page"}>
+                <section className="banner-osf" onClick={()=> this.props.history.push("/home/product-detailed-page")}>
                     <div className="banner-osf__info" >
                         <h2>Banner OSF Theme</h2>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -279,4 +275,5 @@ class PageBody extends Component {
     }
 }
 
-export default PageBody;
+//export default PageBody;
+export default withRouter(PageBody)

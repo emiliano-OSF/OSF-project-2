@@ -97,16 +97,16 @@ class Footer extends Component {
                     </div>
                     <div className="footer-social-media" >
                         <a className="social-media__icon" href="https://www.facebook.com/OSFGlobalServices" target="blank">
-                            <img src={require("../assets/img/icons/social media/facebook_icon.svg")} />
+                            <img src={require("../assets/img/icons/social media/facebook_icon.svg")} alt="Facebook icon" />
                         </a>
                         <a className="social-media__icon" href="https://www.google.com.br/" target="blank">
-                            <img src={require("../assets/img/icons/social media/google_plus_icon.svg")} />
+                            <img src={require("../assets/img/icons/social media/google_plus_icon.svg")} alt={"Google + icon"} />
                         </a>
                         <a className="social-media__icon" href="https://br.pinterest.com/" target="blank">
-                            <img src={require("../assets/img/icons/social media/pinterest_icon.svg")} />
+                            <img src={require("../assets/img/icons/social media/pinterest_icon.svg")} alt="Pinteres icon" />
                         </a>
                         <a className="social-media__icon" href="https://twitter.com/osfglobal" target="blank">
-                            <img src={require("../assets/img/icons/social media/twitter_icon.svg")} />
+                            <img src={require("../assets/img/icons/social media/twitter_icon.svg")} alt="Twitter icon" />
                         </a>
                     </div>
                 </div>

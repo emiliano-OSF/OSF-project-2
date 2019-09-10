@@ -56,7 +56,7 @@ export default class ProductPage extends Component {
         const value = parseInt(node.target.value); /** if it's an input value it will be stored here paring to int**/
 
         /**verification if the value is greater 0 and if the minus was clicked**/
-        if (operator == "-") {
+        if (operator === "-") {
             let number = parseInt(this.state.qtdValue - 1)
 
             /** if the number is already 0 or smaller than, it will stop the method**/
@@ -69,7 +69,7 @@ export default class ProductPage extends Component {
             return;
 
             /**operation to increase the quantity of products**/
-        } else if (operator == "+") {
+        } else if (operator === "+") {
             this.setState({
                 qtdValue: parseInt(this.state.qtdValue + 1)
             })

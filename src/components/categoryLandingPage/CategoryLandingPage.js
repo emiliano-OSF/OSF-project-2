@@ -31,10 +31,10 @@ export default class CategoryLandingPage extends Component {
     /**  load the products on the section returning an elent  **/
     loadProducts = () => {
         return (
-            this.state.products.map((product) => {
+            this.state.products.map((product, i) => {
                 return (
-                    <div className="product-tile">
-                        <img src={require(`../../assets/img/products/prod-${product.id}.png`)} />
+                    <div className="product-tile" key={product.name + i}>
+                        <img src={require(`../../assets/img/products/prod-${product.id}.png`)} alt={product.name} />
                         <div className="product-tile__description">
                             <p>{product.name}</p>
                             <span>{product.price}</span>
@@ -63,15 +63,15 @@ export default class CategoryLandingPage extends Component {
                         </div>
                         <div className='filter'>
                             <span>Color</span>
-                            <div style={{ "width": "200px", "display": "flex", "justify-content": "space-between" }}>
+                            <div style={{ "width": "200px", display: "flex", justifyContent: "space-between" }}>
                                 <div className="color"></div>
-                                <div className="color" style={{ "background-color": "#43c0cf", "border": "transparent" }}></div>
-                                <div className="color" style={{ "background-color": "#3d402f", "border": "transparent" }}></div>
-                                <div className="color" style={{ "background-color": "#4aaf00", "border": "transparent" }}></div>
-                                <div className="color" style={{ "background-color": "#315bbd", "border": "transparent" }}></div>
-                                <div className="color" style={{ "background-color": "#ec6115", "border": "transparent" }}></div>
-                                <div className="color" style={{ "background-color": "#dc041d", "border": "transparent" }}></div>
-                                <div className="color" style={{ "background-color": "#efead7", "border": "transparent" }}></div>
+                                <div className="color" style={{ backgroundColor: "#43c0cf", "border": "transparent" }}></div>
+                                <div className="color" style={{ backgroundColor: "#3d402f", "border": "transparent" }}></div>
+                                <div className="color" style={{ backgroundColor: "#4aaf00", "border": "transparent" }}></div>
+                                <div className="color" style={{ backgroundColor: "#315bbd", "border": "transparent" }}></div>
+                                <div className="color" style={{ backgroundColor: "#ec6115", "border": "transparent" }}></div>
+                                <div className="color" style={{ backgroundColor: "#dc041d", "border": "transparent" }}></div>
+                                <div className="color" style={{ backgroundColor: "#efead7", "border": "transparent" }}></div>
                             </div>
                         </div>
                     </div>

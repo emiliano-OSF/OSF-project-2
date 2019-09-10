@@ -12,7 +12,7 @@ export default class NotFoudPage extends Component {
                 <div className="not-found__panel">
                     <div className="not-found__warn">
                         <h1>Oops!</h1>
-                        <img src={require('../../assets/img/404/exclamation_mark.png')} />
+                        <img src={require('../../assets/img/404/exclamation_mark.png')} alt="Oops!" />
                     </div>
                     <div className="not-found__info">
                         <h5>Sorry, this page could not be found!</h5>

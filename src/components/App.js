@@ -1,4 +1,4 @@
-import React, { Component, ReactDOM } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './Header';
 import Breadcrumb from './Breadcrumb';
@@ -24,10 +24,15 @@ export default class App extends Component {
 
     }
 
-    setCartNumber(value){
+    setCartNumber(value) {
         console.log(value);
-        if(value < 0) return
-
+        if (value < 0) return
+        if (value === undefined) {
+            this.setState({
+                cartNumber: this.state.cartNumber + 1
+            })
+            return;
+        }
         this.setState({
             cartNumber: this.state.cartNumber + value
         })
@@ -35,11 +40,15 @@ export default class App extends Component {
 
     increaseFavNumber() {
         this.setState({
-            favNumber: this.state.favNumber += 1
+            favNumber: this.state.favNumber + 1
         })
     }
 
-    
+    increaseCarNumber() {
+
+    }
+
+
 
     render() {
         return (
@@ -64,6 +73,7 @@ export default class App extends Component {
 
                                 /**  passing the method to execute and change the attribute on Header prop favNumber  **/
                                 increaseFavNumber={this.increaseFavNumber}
+                                setCartNumber={this.setCartNumber}
                             />}
                         />
                         <Route path="/home/404" component={() =>
@@ -81,7 +91,7 @@ export default class App extends Component {
 
                     </Switch>
                 </BrowserRouter>
-                <CookiePanel/>
+                <CookiePanel />
                 <Footer />
             </div>
         )

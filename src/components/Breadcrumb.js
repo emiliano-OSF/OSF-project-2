@@ -30,7 +30,7 @@ export default class Breadcrumb extends Component {
 
                 
                 word.map((x, i, arr) => {//splitin an already splitted path and replacing it to uppercase
-                    if (x == " ") {
+                    if (x === " ") {
                         arr[i + 1] = arr[i + 1].toUpperCase();
                     }
                 })
@@ -38,10 +38,10 @@ export default class Breadcrumb extends Component {
                 let sentence = word.join("").replace(/([A-Z])/g, " $1");
                 let finalSentence = sentence.charAt(0).toUpperCase() + sentence.slice(1);
 
-                if ((arr.length - 1) == i) {
+                if ((arr.length - 1) === i) {
                     /** returning the last element with the class witch represents it **/
                     return (
-                        <h4 className="last-crumb">
+                        <h4 className="last-crumb" key={crumb + i}>
                             <span>/</span>
                             {finalSentence}
                         </h4>
@@ -49,7 +49,7 @@ export default class Breadcrumb extends Component {
                 } else if ((i > 0) && (i < (arr.length - 1))) {
                     /**  adding the / as prefix to the element witch is not the first nor the last one **/
                     return (
-                        <h4 id={`/${crumb}`} onClick={this.navigateTo}>
+                        <h4 id={`/${crumb}`} onClick={this.navigateTo} key={crumb + i}>
                             <span>/</span>
                             {finalSentence}
                         </h4>
@@ -57,7 +57,7 @@ export default class Breadcrumb extends Component {
                 }
                 /**  adding the / to the normal element on the bread track :)  **/
                 return (
-                    <h4 id={`/${crumb}`} onClick={this.navigateTo}>
+                    <h4  id={`/${crumb}`} onClick={this.navigateTo} key={crumb + i}>
                         {finalSentence}
                     </h4>
 
@@ -69,10 +69,10 @@ export default class Breadcrumb extends Component {
     render() {
 
         /** don't render the component if the user is in the Home Page - HomeBody**/
-        if (this.state.path == "/home") return null
+        if (this.state.path === "/home") return null
         return (
             <div className="breadcrumb__container">
-                {this.state.path == '/home' ? null : this.mountBreadcrumb()}
+                {this.state.path === '/home' ? null : this.mountBreadcrumb()}
             </div>
         )
     }
