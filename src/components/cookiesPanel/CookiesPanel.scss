@@ -1,0 +1,89 @@
+
+$primary-font: 'Lato Regular';
+$primary-font-bold: 'Lato Bold';
+$primary-font-light: 'Lato Light';
+
+.cookie-panel{
+    z-index: 100;
+    height: 300px;
+    position: fixed;
+    bottom: 10%;
+    padding: 25px;
+    display: flex;
+    background-color: white;
+    border: 1px solid rgba($color: #000000, $alpha: .2);
+
+    .cookie-panel__warning{
+        h3{
+            font-family: $primary-font-bold;
+            font-size: 14px;
+            color: #84bc22;
+        }
+        p{
+            font-size: 12px;
+
+            a{
+                color: #84bc22;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .cookie-panel__action{
+        span{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        button{
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #84bc22;
+            outline: none;
+            border: none;
+            padding: 5px 25px;
+            border-radius: 30px;
+            color: white;
+        }
+    }
+}
+
+@media only screen and(min-width: 320px){
+    .cookie-panel{
+        .cookie-panel__warning{
+            h3{
+                margin-bottom: 15px;
+                font-size: 16px
+            }
+            p{
+                font-size: 14px;
+
+                
+            }
+        }
+    }
+}
+
+@media only screen and(min-width: 480px){
+    .cookie-panel{
+        height: 230px;
+        width: 95%;
+        margin: 0 2%;
+        border-radius: 5px;
+    }
+}
+
+@media only screen and(min-width: 768px){
+    .cookie-panel{
+        height: 200px;
+        .cookie-panel__warning{
+            p{
+                width: 600px;
+            }
+        }
+    }
+}

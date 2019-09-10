@@ -23,8 +23,11 @@ export default class App extends Component {
 
     }
 
+    componentDidMount(){
+        //let storage = window.localStorage;
+    }
+
     increaseFavNumber() {
-        console.log("foi?")
         this.setState({
             favNumber: this.state.favNumber += 1
         })
@@ -74,7 +77,7 @@ export default class App extends Component {
 
                     </Switch>
                 </BrowserRouter>
-                <CookiePanel />
+                <CookiePanel/>
                 <Footer />
             </div>
         )
