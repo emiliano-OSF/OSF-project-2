@@ -94,7 +94,7 @@ export default class ProductPage extends Component {
                         <img className="product-page__main-img" src={require(`../../assets/img/product-detailed/prod_0${this.state.activeImg}.jpg`)} />
                         <a className="expand fas fa-expand-arrows-alt" onClick={this.expandMainImg}></a>
                         <Modal open={this.state.expandMainImg} onClose={this.toggle}>
-                            <img src={require('../../assets/img/product-detailed/prod_01.jpg')}/>
+                            <img className="product-page__expanded-img" src={require(`../../assets/img/product-detailed/prod_0${this.state.activeImg}.jpg`)}/>
                         </Modal>
                         <div className="product-page__thumbnail-track">
                             <img
@@ -134,7 +134,7 @@ export default class ProductPage extends Component {
                             <input value={this.state.qtdValue} onChange={this.changeQtdValue} />
                             <span id="+" className="fas fa-plus" onClick={this.changeQtdValue}></span>
                         </div>
-                        <button>ADD TO CART</button>
+                        <button onClick={()=>this.props.setCartNumber(this.state.qtdValue)}>ADD TO CART</button>
                         <p>
                             <ReadMoreReact
                                 text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 

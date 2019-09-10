@@ -104,13 +104,15 @@ class Header extends Component {
 
                         <nav className="headernav__user-menu">
                             <a className="fas fa-search" ></a>
-                            <a className="far fa-user" onClick={this.showLogin}></a>
-                            <a className="far fa-heart">
+                            <a className="fas fa-user" onClick={this.showLogin}></a>
+                            <a className="fas fa-heart">
                                 <span>
                                     {this.props.favNumber}
                                 </span>
                             </a>
-                            <a className="far fa-envelope"></a>
+                            <a className="fas fa-shopping-bag">
+                                <span>{this.props.favNumber}</span>
+                            </a>
                         </nav>
 
                     </div>
@@ -346,13 +348,15 @@ class Header extends Component {
 
                 <div className="headernav__option--userfixed col-12">
                     <a className="fas fa-search" ></a>
-                    <a className="far fa-user" onClick={this.showLogin}></a>
-                    <a className="far fa-heart">
+                    <a className="fas fa-user" onClick={this.showLogin}></a>
+                    <a className="fas fa-heart">
                         <span>
                             {this.props.favNumber}
                         </span>
                     </a>
-                    <a className="far fa-envelope"></a>
+                    <a className="fas fa-shopping-bag">
+                        <span>{this.props.cartNumber}</span>
+                    </a>
 
                 </div>
 

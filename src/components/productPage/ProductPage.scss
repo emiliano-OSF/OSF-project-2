@@ -59,6 +59,8 @@ $secondary-darker-color: #45413e;
                 color: #5d8f07;
             }
         }
+
+        
         
         .product-page__thumbnail-track{
             width: 100%;
@@ -156,6 +158,12 @@ $secondary-darker-color: #45413e;
 
 }
 
+.product-page__expanded-img{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
 .advantages{

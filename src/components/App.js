@@ -16,15 +16,21 @@ export default class App extends Component {
     constructor() {
         super();
         this.state = {
-            favNumber: 0
+            favNumber: 0,
+            cartNumber: 0
         }
         this.increaseFavNumber = this.increaseFavNumber.bind(this);
-        this.setFavnumber = this.setFavnumber.bind(this);
+        this.setCartNumber = this.setCartNumber.bind(this);
 
     }
 
-    componentDidMount(){
-        //let storage = window.localStorage;
+    setCartNumber(value){
+        console.log(value);
+        if(value < 0) return
+
+        this.setState({
+            cartNumber: this.state.cartNumber + value
+        })
     }
 
     increaseFavNumber() {
@@ -33,17 +39,12 @@ export default class App extends Component {
         })
     }
 
-    /**  method to pass to PageBody for changing the values of the favorite property in Header  **/
-    setFavnumber(value) {
-        this.setState({
-            favNumber: value
-        })
-    }
+    
 
     render() {
         return (
             <div className="app" >
-                <Header favNumber={this.state.favNumber} />
+                <Header favNumber={this.state.favNumber} cartNumber={this.state.cartNumber} />
                 <Breadcrumb />
 
                 {/** Router component to make navigation on the component pages **/}
@@ -72,7 +73,10 @@ export default class App extends Component {
                             <CategoryLandingPage />}
                         />
                         <Route path="/home/product-detailed-page" component={() =>
-                            <ProductPage />}
+                            <ProductPage
+
+                                setCartNumber={this.setCartNumber}
+                            />}
                         />
 
                     </Switch>
