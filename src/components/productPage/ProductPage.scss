@@ -16,11 +16,11 @@ $secondary-darker-color: #45413e;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;    
 }
 
 .product-page{
     width: 100vw;
-    padding: 10px 20px;
     @include d-flex-col-center();
     background-color: #e8e2d6;
     h1{
@@ -31,12 +31,13 @@ $secondary-darker-color: #45413e;
 .product-page__prod-panel{
     width: 100%;
     margin-bottom: 20px;
-    padding: 10px 0;
-    border-radius: 7px;
+    padding-bottom: 10px;
+    border-radius: 0 0 7px 7px;
     @include d-flex-col-center();
     background: white;
 
     .product-page__img-panel{
+        width: 100%;
         @include d-flex-col-center();
         position: relative;
 
@@ -58,11 +59,12 @@ $secondary-darker-color: #45413e;
         }
         
         .product-page__thumbnail-track{
-            margin: 10px;
-            display: flex;
+            width: 100%;
+            margin: 14px;
+            @include d-flex-row-center();
 
             img{
-                width: 70px;
+                width: 19%;
                 margin: 10px;
                 cursor: pointer;
 
@@ -84,7 +86,7 @@ $secondary-darker-color: #45413e;
             font-size: 31px;
         }
         select{
-            margin: 10px 50% 10px 0;
+            margin: 10px 80% 10px 0;
             border: 2px solid #e8e2d6;
             border-radius: 20px;
             padding: 7px 10px;
@@ -93,7 +95,7 @@ $secondary-darker-color: #45413e;
         .product-page__buy-op{
             margin: 10px 50% 10px 0;
             border: 2px solid #e8e2d6;
-            border-radius: 20px;
+            border-radius: 25px;
             padding: 4px 10px;
             background-color: white;
             width: 120px;
@@ -119,6 +121,7 @@ $secondary-darker-color: #45413e;
         }
         p{
             width: 100%;
+            margin-top: 20px;
             font-size: 16px;
             .read-more-button{
                 color: #84bc22;
@@ -154,6 +157,116 @@ $secondary-darker-color: #45413e;
 }
 
 @media only screen and(min-width: 320px){
+    .product-page{
+        padding: 10px 20px;
+
+        h1{
+            text-align: center;
+        }
+    }
+}
+
+@media only screen and(min-width: 320px){
+    .product-page__prod-panel{
+        .product-page__info-panel{
+            .product-page__buy-op{
+                height: 44px;
+                margin-right: 10%;
+                padding: 8px 0;
+            }
+            button{
+                margin: 10px 0;
+            }
+        }
+    }
 
 }
+
+@media only screen and(min-width: 768px){
+    .product-page{
+        .product-page__img-panel{
+            width: 580px;
+            padding: 20px 0;
+
+            .expand{
+                top: 40px;
+                left: 20px;
+    
+                &:hover{
+                    color: #5d8f07;
+                }
+            }
+        }
+
+        .product-page__info-panel{
+            width: 580px;
+        }
+    }
+}
+
+@media only screen and(min-width: 920px){
+    .product-page{
+        .product-page__img-panel{
+            flex-direction: row;
+
+            .expand{
+                top: 60px;
+            }
+
+            .product-page__thumbnail-track{
+                width: 100px;
+
+                @include d-flex-col-center();
+
+                img{
+                    height: auto;
+                    width: 100px;
+                    margin: 9px;
+                }
+            }
+        }
+
+        .product-page__info-panel{
+            h2{
+                font-size: 48px;
+            }
+        }
+    }
+}
+
+@media only screen and(min-width: 1280px){
+    .product-page{
+        .product-page__prod-panel{
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            border-radius: 0;
+            margin: 0;
+
+            .product-page__img-panel{
+                width: 50%;
+                align-items: flex-start;
+
+                .product-page__main-img{
+                    width: 700px;
+                }
+                
+                .product-page__thumbnail-track{
+                    margin-top: 0px;
+    
+                    img{
+                        margin-top: 0px;
+                    }
+                }
+            }
+
+            .product-page__info-panel{
+                width: 50%;
+            }
+        }
+    }
+}
+
+
+
 

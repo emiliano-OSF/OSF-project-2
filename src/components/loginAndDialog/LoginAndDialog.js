@@ -24,13 +24,15 @@ export default class LoginAndDialog extends Component {
         warnings: []
     }
 
-    /* show() {
+
+    /** method called outside the component to show it: set the state witch controls the rendering**/
+    show() {
         this.setState({
             showLogIn: true
         })
-    } */
+    }
 
-    /**  toggle to show the login dialog modal on the page  **/
+    /**  toggle to show the login dialog modal on the page to hide it **/
     toggle = () => {
         this.setState({
             showLogIn: false
