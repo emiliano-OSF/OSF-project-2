@@ -26,11 +26,13 @@ $secondary-darker-color: #45413e;
     h1{
         margin-bottom: 40px
     }
+    .product-page__tabs{
+        display: none;
+    }
 }
 
 .product-page__prod-panel{
     width: 100%;
-    margin-bottom: 20px;
     padding-bottom: 10px;
     border-radius: 0 0 7px 7px;
     @include d-flex-col-center();
@@ -150,7 +152,11 @@ $secondary-darker-color: #45413e;
             }
         }
     }
+    
+
 }
+
+
 
 .advantages{
     width: 100vw;
@@ -201,6 +207,56 @@ $secondary-darker-color: #45413e;
         .product-page__info-panel{
             width: 580px;
         }
+
+        /* .product-page__tabs{
+            width: 100%;
+            @include d-flex-col-center();
+            background-color: white;
+            padding: 20px 0;
+
+            .product-page__tabs-headers{
+                width: 100%;
+                @include d-flex-row-center();
+
+                span{
+                    margin: 0 25px;
+                    border-radius: 15px 15px 0 0;
+                    padding: 13px 25px;
+                    font-family: $primary-font-bold;
+                    font-size: 24px;
+                    color: rgb(192, 192, 192);
+                    cursor: pointer;
+                    user-select: none;
+                    &:hover{
+                        text-decoration: underline;
+                        color: rgb(165, 165, 165);
+                    }
+                }
+                .tab-header__active{
+                    background-color: $darker-color;
+                    color: white;
+                }
+            }
+
+            .product-page__tab-content{
+                padding: 60px;
+                display: none;
+                background-color: $darker-color;
+                color: white;
+
+                p{
+                    width: 40%;
+                    font-size: 16px;
+                }
+            }
+
+            .tab-content__active{
+                @include d-flex-row-center();
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+        } */
     }
 }
 
@@ -231,6 +287,56 @@ $secondary-darker-color: #45413e;
                 font-size: 48px;
             }
         }
+
+        .product-page__tabs{
+            width: 100%;
+            @include d-flex-col-center();
+            background-color: white;
+            padding: 20px 0 0;
+
+            .product-page__tabs-headers{
+                width: 100%;
+                @include d-flex-row-center();
+
+                span{
+                    margin: 0 25px;
+                    border-radius: 15px 15px 0 0;
+                    padding: 13px 25px;
+                    font-family: $primary-font-bold;
+                    font-size: 24px;
+                    color: rgb(192, 192, 192);
+                    cursor: pointer;
+                    user-select: none;
+                    &:hover{
+                        text-decoration: underline;
+                        color: rgb(165, 165, 165);
+                    }
+                }
+                .tab-header__active{
+                    background-color: $darker-color;
+                    color: white;
+                }
+            }
+
+            .product-page__tab-content{
+                padding: 60px;
+                display: none;
+                background-color: $darker-color;
+                color: white;
+
+                p{
+                    width: 40%;
+                    font-size: 16px;
+                }
+            }
+
+            .tab-content__active{
+                @include d-flex-row-center();
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+        }
     }
 }
 
@@ -246,6 +352,10 @@ $secondary-darker-color: #45413e;
             .product-page__img-panel{
                 width: 50%;
                 align-items: flex-start;
+
+                .expand{
+                    top: 40px
+                }
 
                 .product-page__main-img{
                     width: 700px;

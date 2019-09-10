@@ -23,7 +23,8 @@ export default class ProductPage extends Component {
         activeImg: 1,
         productPrice: 299.99,
         qtdValue: 1,
-        expandMainImg: false
+        expandMainImg: false,
+        activeTab: 1
     }
 
     componentDidMount(){
@@ -169,6 +170,54 @@ export default class ProductPage extends Component {
                     </div>
                 </div>
                 
+                <section className="product-page__tabs">
+                    <div className="product-page__tabs-headers">
+                        <span className={`${this.state.activeTab == 1? "tab-header__active": ""}`} onClick={()=> this.setState({activeTab: 1})}>Description</span>
+                        <span className={`${this.state.activeTab == 2? "tab-header__active": ""}`} onClick={()=> this.setState({activeTab: 2})}>Aditional Information</span>
+                        <span className={`${this.state.activeTab == 3? "tab-header__active": ""}`} onClick={()=> this.setState({activeTab: 3})}>Reviews (3)</span>
+                    </div>
+
+                    <div className={`product-page__tab-content ${this.state.activeTab == 1? "tab-content__active" : ""}`}>
+                        <p> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                        </p>
+                        <p>Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                        </p>
+                    </div>
+                    <div className={`product-page__tab-content ${this.state.activeTab == 2? "tab-content__active" : ""}`}>
+                        <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                        </p>
+                        <p> Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                        </p>
+                    </div>
+                    <div className={`product-page__tab-content ${this.state.activeTab == 3 ? "tab-content__active" : ""}`}>
+                        <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa. Aenean massa.
+                            Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget
+                            dolor. Aenean massa.
+                        </p>
+                    </div>
+
+                </section>
+
                 <section className="advantages">
                     <div className="advantages__panel">
                         <div className="advantages__icon">
