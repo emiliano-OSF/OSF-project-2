@@ -6,7 +6,8 @@ import './Breadcrumb.scss';
 export default class Breadcrumb extends Component {
 
     state = {
-        path: window.location.pathname
+        //path: window.location.pathname
+        path: this.props.path
     }
 
     /** method to navigate considering the element clicked **/
@@ -67,6 +68,7 @@ export default class Breadcrumb extends Component {
     }
 
     render() {
+        console.log(this.props)
 
         /** don't render the component if the user is in the Home Page - HomeBody**/
         if (this.state.path === "/home") return null

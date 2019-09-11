@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import './NotFoundPage.scss';
 
 
-export default class NotFoudPage extends Component {
+class NotFoudPage extends Component {
+
+    componentDidMount(){
+        this.props.setPath(this.props.location.pathname)
+
+    }
 
     render() {
         return (
@@ -34,3 +41,5 @@ export default class NotFoudPage extends Component {
         )
     }
 }
+
+export default withRouter(NotFoudPage);

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+
 import './CategoryLandingPage.scss';
 
 import SyncLoader from "react-spinners/SyncLoader";
 
-export default class CategoryLandingPage extends Component {
+class CategoryLandingPage extends Component {
 
     state = {
         products: [],
@@ -14,6 +16,8 @@ export default class CategoryLandingPage extends Component {
     /**  method that request the products values and sets on the state  **/
     componentDidMount() {
         try {
+            this.props.setPath(this.props.location.pathname)
+
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
                 .then(res => res.json())
                 .then(data => {
@@ -114,10 +118,12 @@ export default class CategoryLandingPage extends Component {
                     }
                 </div>
                 <button>Load More</button>
-                
-                
+
+
 
             </div >
         )
     }
 }
+
+export default withRouter(CategoryLandingPage);

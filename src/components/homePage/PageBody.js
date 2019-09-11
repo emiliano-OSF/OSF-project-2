@@ -20,13 +20,15 @@ class PageBody extends Component {
         isLoadingFeatured: true,
         isLoading: true,
         loadProd: true,
-        isError: false
+        isError: false,
+        path: ""
     }
 
 
     /**  requisition when the component is mounted to get the products ant the featured products
      *  in an git API fake database that returns an JSON with the values  **/
     componentDidMount() {
+        this.props.setPath(this.props.location.pathname)
         try {
 
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/cloud")
@@ -105,7 +107,7 @@ class PageBody extends Component {
                         </div>
                         <div className="prod-tile__overlay">
                             <a className="fas fa-plus" onClick={()=> this.props.setCartNumber()}></a>
-                            <a className="fas fa-heart" onClick={this.props.increaseFavNumber}></a>
+                            <a className="fas fa-heart" onClick={() => this.props.increaseFavNumber()}></a>
                         </div>
                     </div>
                 )

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import ReadMoreReact from 'read-more-react';
 import Modal from '@material-ui/core/Modal';
 
@@ -10,7 +11,7 @@ import Clipboard from '../../assets/img/icons/clipboard.svg';
 import './ProductPage.scss';
 
 
-export default class ProductPage extends Component {
+class ProductPage extends Component {
 
     constructor() {
         super();
@@ -28,6 +29,11 @@ export default class ProductPage extends Component {
     }
 
     componentDidMount(){
+        /**
+         *  method to set the current pathname on App 
+        **/
+        this.props.setPath(this.props.location.pathname)
+        console.log(this.props)
 
     }
 
@@ -252,3 +258,5 @@ export default class ProductPage extends Component {
         )
     }
 }
+
+export default withRouter(ProductPage)
