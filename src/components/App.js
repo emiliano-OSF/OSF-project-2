@@ -8,9 +8,8 @@ import Footer from './Footer';
 import PageBody from './homePage/PageBody';
 import NotFoundPage from './notFoundPage/NotFoundPage';
 import CategoryLandingPage from './categoryLandingPage/CategoryLandingPage';
-import ProductPage from './productPage/ProductPage'
-
-// CORRIGIR O LANCE DAS ROTAS PASSADAS PRO BREAD
+import ProductPage from './productPage/ProductPage';
+import CountdownPage from './CountdownPage/CountdownPage';
 
 export default class App extends Component {
     constructor() {
@@ -73,7 +72,7 @@ export default class App extends Component {
         return (
             <div className="app" >
                 <Header favNumber={this.state.favNumber} cartNumber={this.state.cartNumber} />
-                
+
                 {/** 
                 * Breadcrumb component geting the path tha the others components give
                 **/}
@@ -126,6 +125,12 @@ export default class App extends Component {
 
                                 setPath={this.setPath}
 
+                            />}
+                        />
+
+                        <Route path="/home/countdown" component={() =>
+                            <CountdownPage
+                                setPath={this.setPath}
                             />}
                         />
 

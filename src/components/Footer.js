@@ -79,6 +79,7 @@ class Footer extends Component {
                     <div className="footer-menu--op footer-menu--sm">
                         <div className="footer-category">
                             <span className="footer-category">About <span className="fas fa-caret-down"></span></span>
+                            <a className="footer-category__op" href={"/home/countdown"}>TO COWNTDOWN PAGE</a>
                             <a className="footer-category__op" href={this.state.notFoundPage}>About us</a>
                             <a className="footer-category__op" href={this.state.notFoundPage}>Delivery</a>
                             <a className="footer-category__op" href={this.state.notFoundPage}>Testmonials</a>
@@ -88,11 +89,11 @@ class Footer extends Component {
                     </div><div className="footer-menu--op footer-menu--md">
                         <div className="footer-category">
                             <span className="footer-category">About</span>
+                            <a className="footer-category__op" href={"/home/countdown"}>TO COWNTDOWN PAGE</a>
                             <a className="footer-category__op" href={this.state.notFoundPage}>About us</a>
                             <a className="footer-category__op" href={this.state.notFoundPage}>Delivery</a>
                             <a className="footer-category__op" href={this.state.notFoundPage}>Testmonials</a>
                             <a className="footer-category__op" href={this.state.notFoundPage}>Contact</a>
-
                         </div>
                     </div>
                     <div className="footer-social-media" >

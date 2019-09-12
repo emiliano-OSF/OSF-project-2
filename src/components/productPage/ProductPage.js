@@ -15,6 +15,7 @@ class ProductPage extends Component {
 
     constructor() {
         super();
+        
         this.changeMainImg = this.changeMainImg.bind(this);
         this.changeQtdValue = this.changeQtdValue.bind(this);
         this.expandMainImg = this.expandMainImg.bind(this);
@@ -33,16 +34,23 @@ class ProductPage extends Component {
          *  method to set the current pathname on App 
         **/
         this.props.setPath(this.props.location.pathname)
-        console.log(this.props)
 
     }
 
+
+    /**
+     * change the main img by clicking on the thumbnail
+     * **/
     changeMainImg(node) {
         this.setState({
             activeImg: parseInt(node.target.id)
         })
     }
 
+
+    /**
+     * expand the main image by clicking on the expand icon
+     * **/
     expandMainImg(){
         
         this.setState({
@@ -50,6 +58,10 @@ class ProductPage extends Component {
         })
     }
 
+
+    /**
+     * minimize the main image
+     * **/
     toggle = () => {
         this.setState({
             expandMainImg: false

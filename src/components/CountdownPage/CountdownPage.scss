@@ -1,0 +1,125 @@
+$primary-font: 'Lato Regular';
+$primary-font-bold: 'Lato Bold';
+$primary-font-light: 'Lato Light';
+$darker-color: #262a32;
+$secondary-darker-color: #45413e;
+
+.countdown__container{
+    padding: 60px 0px;
+    background-color: #f1f1f1;
+
+    .countdown__panel{
+        background-color: white;
+        padding: 40px 20px;
+        overflow: hidden;
+        border-radius: 7px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3{
+            color: #45413e;
+            font-family: $primary-font-bold;
+            font-size: 30px;
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+
+        .countdown__timer-panel{
+            display: flex;
+            flex-direction: row;
+
+            .countdown__time-circle{
+            }
+        }
+        .countdown__input-field{
+            display: none;
+        }
+    }
+}
+
+@media only screen and(min-width: 320px){
+    .countdown__container{
+        .countdown__panel{
+            display: flex;
+            flex-direction: column;
+
+            .countdown__timer-panel{
+                margin-top: 50px;
+                flex-direction: column;
+
+                .countdown__time-circle{
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    margin-top: 20px;
+
+                    span{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 130px;
+                        width: 130px;
+                        border-radius: 75px;
+                        border: 3px solid #84bc22;;
+                        font-size: 48px;
+                        font-family: $primary-font-bold;
+                        margin-bottom: 10px;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and(min-width: 480px){
+    .countdown__container{
+        padding: 40px;
+        .countdown__panel{
+            p{
+                width: 50%;
+            }
+            .countdown__timer-panel{
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                .countdown__time-circle{
+                    margin: 20px 50px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and(min-width: 768px){
+    .countdown__container{
+        .countdown__panel{
+            .countdown__input-field{
+                width: 470px;
+                margin-top: 40px;
+                border-radius: 30px;
+                border: 2px solid #e5e2df;
+                padding: 10px 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+    
+                input{
+                    border: none;
+                    width: 100%;
+                    outline: none;
+                }
+                span{
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

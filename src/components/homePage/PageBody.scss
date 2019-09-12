@@ -106,10 +106,7 @@ $secondary-darker-color: #45413e;
         width: 95%;
         padding: 0px 10px;
 
-        .carousel-item{
-            overflow: hidden;
-            border-radius: 7px;
-        }
+        
 
         .carousel-indicators{
             bottom: -10%;
@@ -139,6 +136,12 @@ $secondary-darker-color: #45413e;
             }
         }
     }
+
+    .carousel-item{
+        overflow: hidden;
+        border-radius: 7px;
+    }
+    
     ol{
         margin-bottom: 0;
     }
@@ -409,6 +412,20 @@ $secondary-darker-color: #45413e;
             position: relative;
             border-radius: 7px;
             overflow: hidden;
+        }
+
+        .slide__info{
+    
+            h4{
+                width: 60%;
+                margin-bottom: 12%;
+                font-size: 25px;
+            }
+            p{
+                width: 50%;
+                margin-bottom: 5%;
+                font-size: 16px;
+            }
         }
 
         .prod-img__768{

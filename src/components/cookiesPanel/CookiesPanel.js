@@ -54,7 +54,7 @@ export default class CookiePanel extends Component {
                     </p>
                 </div>
                 <div className="cookie-panel__action">
-                    <span className="fas fa-times"></span>
+                    <span className="fas fa-times" onClick={()=> this.setState({show: true})}></span>
                     <button onClick={() => this.acceptCookies()}>ACCEPT</button>
                 </div>
             </div>
