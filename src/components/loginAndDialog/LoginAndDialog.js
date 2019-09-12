@@ -25,7 +25,8 @@ export default class LoginAndDialog extends Component {
     }
 
 
-    /** method called outside the component to show it: set the state witch controls the rendering**/
+    /** 
+     * method called outside the component to show it: set the state witch controls the rendering**/
     show() {
         this.setState({
             showLogIn: true
@@ -44,7 +45,6 @@ export default class LoginAndDialog extends Component {
     validatePassword(event) {
         const validation = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{6,})"); /**  RegEx to the password rules  **/
         if (validation.test(event.target.value)) {
-            console.log("passou", event.target.value);
             this.setState({
                 inputWarn: false,
                 okPassword: true
@@ -67,6 +67,9 @@ export default class LoginAndDialog extends Component {
     }
 
     render() {
+        /**
+         * if the state is false it will not render the component
+         * **/
         if (!this.state.showLogIn) return null;
 
         return (

@@ -18,7 +18,9 @@ class CategoryLandingPage extends Component {
         //console.log(this.props)
         this.props.setPath(this.props.location.pathname)
         try {
-
+            /**
+             * to ftetch the data from the fake db
+             * **/
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
                 .then(res => res.json())
                 .then(data => {
@@ -36,6 +38,9 @@ class CategoryLandingPage extends Component {
     /**  load the products on the section returning an elent  **/
     loadProducts = () => {
         return (
+            /**
+             * map function that load all the data stores on the products state
+             * **/
             this.state.products.map((product, i) => {
                 return (
                     <div className="product-tile" key={product.name + i}>
@@ -115,13 +120,13 @@ class CategoryLandingPage extends Component {
 
                 <div className="landing-page__product-panel">
                     {
+                        /**
+                         * if the products state is empty it will render the loading spinner
+                         * **/
                         !this.state.isLoading ? this.loadProducts() : <SyncLoader color={'gray'} />
                     }
                 </div>
                 <button>Load More</button>
-
-
-
             </div >
         )
     }

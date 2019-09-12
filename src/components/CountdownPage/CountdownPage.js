@@ -14,7 +14,7 @@ class CountdownPage extends Component {
     componentDidMount() {
 
         /**
-         * passing this pathname
+         * passing this pathname to App component
          * **/
         this.props.setPath(this.props.location.pathname)
 
@@ -22,7 +22,7 @@ class CountdownPage extends Component {
          * calculates the date
          * **/
         this.interval = setInterval(() => {
-            let deadline = new Date("Sep 12, 2019 15:00:00").getTime();     // deadline date
+            let deadline = new Date("Sep 12, 2019 15:30:00").getTime();     // deadline date
             let today = new Date().getTime()    //todays' date
             let timeUntil = deadline - today;   //gets the time between these two dates
 
@@ -33,7 +33,7 @@ class CountdownPage extends Component {
 
 
             /**
-             * sets the states with de remaining time values
+             * sets the states to the values which represents the remaining
              * **/
             this.setState({
                 days, hours, minutes, seconds
@@ -57,7 +57,7 @@ class CountdownPage extends Component {
         if(this.state.days < 0){
             clearInterval(this.interval);
         }
-        //console.log(this.props)
+
         return (
             <section className="countdown__container">
                 <div className="countdown__panel">
@@ -94,4 +94,8 @@ class CountdownPage extends Component {
     }
 }
 
+/**
+ * this structure is to get acces to the route pathname
+ * with this it will be possible to dynamically change the Breadcrumb property component
+ * **/
 export default withRouter(CountdownPage)

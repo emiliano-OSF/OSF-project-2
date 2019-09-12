@@ -52,7 +52,6 @@ class ProductPage extends Component {
      * expand the main image by clicking on the expand icon
      * **/
     expandMainImg(){
-        
         this.setState({
             expandMainImg: true
         })
@@ -73,11 +72,11 @@ class ProductPage extends Component {
         const operator = node.target.id; /** get the operator by id**/
         const value = parseInt(node.target.value); /** if it's an input value it will be stored here paring to int**/
 
-        /**verification if the value is greater 0 and if the minus was clicked**/
+        /**verification if the value is greater than 0 and if the minus was clicked**/
         if (operator === "-") {
             let number = parseInt(this.state.qtdValue - 1)
 
-            /** if the number is already 0 or smaller than, it will stop the method**/
+            /** if the number is already 0 or smaller then it will stop the method**/
             if (number <= 0) {
                 return
             }
@@ -86,7 +85,7 @@ class ProductPage extends Component {
             })
             return;
 
-            /**operation to increase the quantity of products**/
+            /**operation to increase by 1 the quantity of products**/
         } else if (operator === "+") {
             this.setState({
                 qtdValue: parseInt(this.state.qtdValue + 1)
@@ -111,6 +110,10 @@ class ProductPage extends Component {
                     <div className="product-page__img-panel">
                         <img className="product-page__main-img" src={require(`../../assets/img/product-detailed/prod_0${this.state.activeImg}.jpg`)} />
                         <a className="expand fas fa-expand-arrows-alt" onClick={this.expandMainImg}></a>
+
+                        {/**
+                            it opens a modal with the main image selected
+                        **/}
                         <Modal open={this.state.expandMainImg} onClose={this.toggle}>
                             <img className="product-page__expanded-img" src={require(`../../assets/img/product-detailed/prod_0${this.state.activeImg}.jpg`)}/>
                         </Modal>
@@ -118,8 +121,8 @@ class ProductPage extends Component {
                             <img
                                 id="1"
                                 src={require("../../assets/img/product-detailed/prod_01-small.jpg")}
-                                onClick={this.changeMainImg}
-                                style={{ 'border': this.state.activeImg == "1" ? '2px solid green' : "" }}
+                                onClick={this.changeMainImg} //to change to the image clicked
+                                style={{ 'border': this.state.activeImg == "1" ? '2px solid green' : "" }} //change the border to the img selected
                             />
                             <img
                                 id="2"

@@ -62,10 +62,20 @@ class PageBody extends Component {
         }
     }
 
+
+    /**
+     * loads dynamically the cloud solution section slider
+     * first carousel
+     * **/
     loadCloudSolutions() {
         return (
             <Carousel controls={false}>
-                {this.state.cloudProducts.map((cloud, i) => {
+                
+                {
+                    /**map function on the data stored with the slides informations
+                     * like title, text and image url
+                     * **/
+                    this.state.cloudProducts.map((cloud, i) => {
                     return (<Carousel.Item key={cloud.title + i}>
                         <img
                             className=" w-100 prod-img__320"
@@ -93,7 +103,7 @@ class PageBody extends Component {
 
     }
 
-    /**  method to load the procducts on the popular products section on screen  **/
+    /**  method to load the products on the popular products section on screen  **/
     loadPopProdutcs() {
         return (
 
@@ -118,10 +128,10 @@ class PageBody extends Component {
     }
 
 
-    /**  to load more products on the popular products/itens section by clicking on the button  **/
+    /**  to load more products on the popular products/itens section by clicking on the "load more" button  **/
     loadMoreProd = () => {
         let lista = this.state.products;
-        lista = [...lista, ...lista];
+        lista = [...lista, ...lista]; // increments the list by its own values
 
         this.setState({
             products: lista,
@@ -130,15 +140,19 @@ class PageBody extends Component {
     }
 
 
-    /**  load the featured products on its carousel slider section  **/
+    /**  load the Featured Products on its carousel slider section  **/
     loadFeaturedProducts = () => {
         return (
+            /**
+             * different carousel which shows 4 tiles at once
+             * it can slides through 4 tiles
+             * **/
             <ItemsCarousel
                 gutter={12}
                 activePosition={'center'}
                 chevronWidth={100}
-                numberOfCards={4}
-                slidesToScroll={4}
+                numberOfCards={4} // sets to 4 the number of tiles
+                slidesToScroll={4} // scroll through 4 tiles
                 outsideChevron={true}
                 showSlither={false}
                 firstAndLastGutter={false}
@@ -146,8 +160,12 @@ class PageBody extends Component {
                 requestToChangeActive={value => this.setState({ activeItemIndex: value })}
                 rightChevron={<span className='fas fa-angle-right'></span>}
                 leftChevron={<span className='fas fa-angle-left'></span>}>
+
                 {Array.from(this.state.featuredProducts).map((product, i) =>
 
+                    /**
+                     * on click it will navigate to the Category Landing Page without reloading the page 
+                     * **/
                     <a onClick={()=> this.props.history.push("/home/category-landing-page")} className="featured-products__tile" key={product.title + i}>
                         <img key={i} src={require(`../../assets/img/home/featured/prod_${product.id}.png`)} />
                         <p>{product.title}</p>
@@ -165,9 +183,12 @@ class PageBody extends Component {
     render() {
         return (
             <div className="wrapper">
-                {/* <button onClick={this.props.increaseFavNumber}>Aumentar</button> */}
                 <section className="cloud-solution__container row">
                     {
+
+                        /**
+                         * while the products is fetching it will load a loading spinner
+                         * **/
                         !this.state.isLoadingPop ? this.loadCloudSolutions() : <SyncLoader color="#123abc" />
                     }
 
@@ -184,6 +205,9 @@ class PageBody extends Component {
                     </div>
                 </section>
 
+                {/**
+                * it will be loaded when the viewport width value be in 320px
+                **/}
                 <section className="popular-items-320__container">
                     <h2>Popular Items</h2>
                     <div className="popular-items__container-wrapper">
@@ -204,7 +228,6 @@ class PageBody extends Component {
                                         </Carousel.Caption>
                                     </Carousel.Item>)
                             })}
-
                         </Carousel>
                     </div>
                 </section>
@@ -213,6 +236,9 @@ class PageBody extends Component {
                     <h2>Popular items</h2>
                     <div className="popular-items-768__container-wrapper">
                         {
+                            /**
+                             * same structure for loading spinner
+                             * **/
                             !this.state.isLoading ? this.loadPopProdutcs() : <SyncLoader color="white" />
                         }
 
@@ -220,7 +246,10 @@ class PageBody extends Component {
                     {this.state.loadProd ? <button onClick={this.loadMoreProd}>LOAD MORE <span className="fas fa-redo" ></span></button> : null}
 
                 </section>
-
+                        {/**
+                            if click on this element it will navigate to the product detailed page without loading
+                            using the React Router power LOL
+                        **/}
                 <section className="banner-osf" onClick={()=> this.props.history.push("/home/product-detailed-page")}>
                     <div className="banner-osf__info" >
                         <h2>Banner OSF Theme</h2>
@@ -277,5 +306,8 @@ class PageBody extends Component {
     }
 }
 
-//export default PageBody;
+
+/**
+ * structure to gets the router children paths to pass to breadcrumb component
+ * **/
 export default withRouter(PageBody)

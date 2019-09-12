@@ -8,13 +8,20 @@ export default class CookiePanel extends Component {
         wait: true
     }
 
+    /**
+     * when the user accept the cookies terms it will be stored in local storage
+     * **/
     acceptCookies() {
-        window.localStorage.setItem("accepted", true);
+        window.localStorage.setItem("accepted", true);  // a variable that store an boolean data
         this.setState({
             show: JSON.parse(window.localStorage.accepted)
         })
     }
 
+
+    /**
+     * the code will wait 10 seconds until show the cookie popup
+     * **/
     componentWillMount(){
         setTimeout(() => {
             this.setState({
@@ -24,21 +31,31 @@ export default class CookiePanel extends Component {
     }
 
     componentDidMount() {
+        /**
+         * if localstorage is empty it will create an value ans set it to store an "false" string
+         * **/
         let storage = (localStorage.accepted);
         if (!storage) {
             localStorage.setItem("accepted", false);
             return;
         }
         this.setState({
-            show: JSON.parse(storage)
+            show: JSON.parse(storage)   //store the localstorage on the state
         })
     }
 
     render() {
+        /**
+         * verifies if the state is true, if so it will not render the component
+         * **/
         if (this.state.show) {
             return ("")
         }
 
+
+         /**
+         * verifies if the state "wait" is true then the component will delay until show itself
+         * **/
         if(this.state.wait){
             return ("")
         }
@@ -54,7 +71,14 @@ export default class CookiePanel extends Component {
                     </p>
                 </div>
                 <div className="cookie-panel__action">
+                    {/** 
+                        if the user click on the exit span it will stop rendering the popup and will not store the value
+                    **/}
                     <span className="fas fa-times" onClick={()=> this.setState({show: true})}></span>
+                    
+                    {/** 
+                        it accepts and store the true value and will not show the component anymore
+                    **/}
                     <button onClick={() => this.acceptCookies()}>ACCEPT</button>
                 </div>
             </div>

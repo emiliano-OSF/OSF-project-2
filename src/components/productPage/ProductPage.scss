@@ -159,6 +159,7 @@ $secondary-darker-color: #45413e;
 }
 
 .product-page__expanded-img{
+    width: 80%;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -178,9 +179,12 @@ $secondary-darker-color: #45413e;
             text-align: center;
         }
     }
+    .product-page__expanded-img{
+        width: 90%;
+    }
 }
 
-@media only screen and(min-width: 320px){
+@media only screen and(min-width: 480px){
     .product-page__prod-panel{
         .product-page__info-panel{
             .product-page__buy-op{
@@ -192,6 +196,9 @@ $secondary-darker-color: #45413e;
                 margin: 10px 0;
             }
         }
+    }
+    .product-page__expanded-img{
+        width: 70%;
     }
 
 }
@@ -215,56 +222,9 @@ $secondary-darker-color: #45413e;
         .product-page__info-panel{
             width: 580px;
         }
-
-        /* .product-page__tabs{
-            width: 100%;
-            @include d-flex-col-center();
-            background-color: white;
-            padding: 20px 0;
-
-            .product-page__tabs-headers{
-                width: 100%;
-                @include d-flex-row-center();
-
-                span{
-                    margin: 0 25px;
-                    border-radius: 15px 15px 0 0;
-                    padding: 13px 25px;
-                    font-family: $primary-font-bold;
-                    font-size: 24px;
-                    color: rgb(192, 192, 192);
-                    cursor: pointer;
-                    user-select: none;
-                    &:hover{
-                        text-decoration: underline;
-                        color: rgb(165, 165, 165);
-                    }
-                }
-                .tab-header__active{
-                    background-color: $darker-color;
-                    color: white;
-                }
-            }
-
-            .product-page__tab-content{
-                padding: 60px;
-                display: none;
-                background-color: $darker-color;
-                color: white;
-
-                p{
-                    width: 40%;
-                    font-size: 16px;
-                }
-            }
-
-            .tab-content__active{
-                @include d-flex-row-center();
-                justify-content: space-between;
-                align-items: flex-start;
-            }
-
-        } */
+    }
+    .product-page__expanded-img{
+        width: 500px;
     }
 }
 

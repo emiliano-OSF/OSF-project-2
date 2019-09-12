@@ -67,6 +67,24 @@ header{
 .mega-menu__sm{
     .headernav__buttons{
         display: none;
+        button{
+            font-size: 14px;
+            border: none;
+            background-color: white;
+            padding: 0 15px;
+            outline: none;
+            &:hover{
+                background-color: white;
+                color: black;
+            }
+        }
+        .active{
+            display: block;
+            background-color: $darker-color;
+            color: white;
+            cursor: pointer;
+            border-bottom: 2px solid #84bc22;
+        }
     }
 }
 
@@ -201,6 +219,7 @@ header{
     .logopanel{
         .logopanel__button{
             display: none;
+            
         }
         .logopanel__homelogo{
             margin: 0 auto 0 auto;
@@ -210,6 +229,7 @@ header{
     .mega-menu__sm{
         .headernav__buttons{
             display: flex;
+            background-color: white;
         }
     }
 
@@ -226,10 +246,9 @@ header{
         position: relative;
         flex-direction: row;
         justify-content: center;
-        background-color: white;
         transition: all 150ms;
 
-        h4{
+        button{
             position: relative;
             margin: 0;
             display: flex;
@@ -240,7 +259,6 @@ header{
 
             &:hover{
                 background-color: $darker-color;
-                color: white;
                 cursor: pointer;
             }
 
@@ -308,10 +326,25 @@ header{
         .headernav__buttons{
             display: flex;
             height: 100%;
-            width: 470px;
+            width: 490px;
 
-            h4{
+            button{
+                font-size: 14px;
+                border: none;
+                background-color: white;
                 padding: 0 15px;
+                outline: none;
+                
+                span{
+                    margin-left: 5px;
+                }
+            }
+            .active{
+                display: block;
+                background-color: $darker-color;
+                color: white;
+                cursor: pointer;
+                border-bottom: 2px solid #84bc22;
             }
         }
         .headernav__lang-op{

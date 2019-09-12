@@ -7,6 +7,9 @@ import './NotFoundPage.scss';
 class NotFoudPage extends Component {
 
     componentDidMount(){
+        /**
+         * it passes the path to outside the component, to App.js
+         * **/
         this.props.setPath(this.props.location.pathname)
 
     }

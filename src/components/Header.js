@@ -13,6 +13,7 @@ class Header extends Component {
         this.showMenuPanel = this.showMenuPanel.bind(this);
         this.setWrapper = this.setWrapper.bind(this);
         this.handleOutClick = this.handleOutClick.bind(this);
+        this.hideMenuPanel = this.hideMenuPanel.bind(this)
     }
 
     state = {
@@ -24,9 +25,6 @@ class Header extends Component {
         favNumber: 0
 
     }
-    /* componentWillReceiveProps(value){
-        this.setState(value)
-    } */
 
     setWrapper(node) {
         this.wrapperRef = node;
@@ -47,20 +45,39 @@ class Header extends Component {
 
     showMenuPanel(e) {
         const clicked = e.target.id;
-        if (this.state.activePanel === clicked) {
-            this.setState({ activePanel: '' });
 
-        } else {
-            this.setState({ activePanel: clicked });
-        }
+        setTimeout(() => {
+            if (this.state.activePanel === clicked) {
+                this.setState({ activePanel: '' });
+    
+            } else {
+                this.setState({ activePanel: clicked });
+            }
+        }, 150);
     }
 
+    /**
+     * it hides the menu with and delay of 200 ms
+     * **/
+    hideMenuPanel(e){
+        const clicked = e.target.id;
+
+        setTimeout(() => {
+            if(!clicked) return;
+
+            this.setState({
+                activePanel: ""
+            })
+        }, 200);
+    }
+
+    /** it will display the login dialog modal**/
     showLogin = () => {
         this.loginPage.current.show();
     }
 
     render() {
-        const menuClass = this.state.showMenu ? " fa-times" : "fa-bars";
+        const menuClass = this.state.showMenu ? " fa-times" : "fa-bars"; // to change between the bars or the X icons in the mobile side menu
         const menuShow = this.state.showMenu ? "headernav__ellement-show" : "";
 
         return (
@@ -79,10 +96,10 @@ class Header extends Component {
                     </div>
                     <div className="mega-nav">
                         <nav className="headernav__buttons">
-                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'first' ? "active" : ""}`} id="first" onClick={this.showMenuPanel}>SERVICES <span className="fas fa-caret-down"></span></h4>
-                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'second' ? "active" : ""}`} id="second" onClick={this.showMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></h4>
-                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'third' ? "active" : ""}`} id="third" onClick={this.showMenuPanel}>LIBRARY <span className="fas fa-caret-down"></span></h4>
-                            <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'fourth' ? "active" : ""}`} id="fourth" onClick={this.showMenuPanel}>CONTACT US <span className="fas fa-caret-down"></span></h4>
+                            <button ref={this.setWrapper} className={`${this.state.activePanel === 'first' ? "active" : ""}`} id="first" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>SERVICES <span className="fas fa-caret-down"></span></button>
+                            <button ref={this.setWrapper} className={`${this.state.activePanel === 'second' ? "active" : ""}`} id="second" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></button>
+                            <button ref={this.setWrapper} className={`${this.state.activePanel === 'third' ? "active" : ""}`} id="third" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>LIBRARY <span className="fas fa-caret-down"></span></button>
+                            <button ref={this.setWrapper} className={`${this.state.activePanel === 'fourth' ? "active" : ""}`} id="fourth" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>CONTACT US <span className="fas fa-caret-down"></span></button>
                         </nav>
 
                         <nav className="headernav__lang-op">
@@ -112,10 +129,10 @@ class Header extends Component {
 
                 <nav className="mega-menu__sm">
                     <nav className="headernav__buttons">
-                        <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'first' ? "active" : ""}`} id="first" onClick={this.showMenuPanel}>SERVICES <span className="fas fa-caret-down"></span></h4>
-                        <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'second' ? "active" : ""}`} id="second" onClick={this.showMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></h4>
-                        <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'third' ? "active" : ""}`} id="third" onClick={this.showMenuPanel}>LIBRARY <span className="fas fa-caret-down"></span></h4>
-                        <h4 ref={this.setWrapper} className={`${this.state.activePanel === 'fourth' ? "active" : ""}`} id="fourth" onClick={this.showMenuPanel}>CONTACT US <span className="fas fa-caret-down"></span></h4>
+                        <button ref={this.setWrapper} className={`${this.state.activePanel === 'first' ? "active" : ""}`} id="first" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>SERVICES <span className="fas fa-caret-down"></span></button>
+                        <button ref={this.setWrapper} className={`${this.state.activePanel === 'second' ? "active" : ""}`} id="second" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>COMPANY <span className="fas fa-caret-down"></span></button>
+                        <button ref={this.setWrapper} className={`${this.state.activePanel === 'third' ? "active" : ""}`} id="third" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>LIBRARY <span className="fas fa-caret-down"></span></button>
+                        <button ref={this.setWrapper} className={`${this.state.activePanel === 'fourth' ? "active" : ""}`} id="fourth" onClick={this.showMenuPanel} onBlur={this.hideMenuPanel}>CONTACT US <span className="fas fa-caret-down"></span></button>
                     </nav>
 
                     <section className="nav-panel" style={{ display: this.state.activePanel === 'first' ? 'flex' : 'none' }}>
@@ -145,7 +162,6 @@ class Header extends Component {
                                 <a className="nav-menu__op-category" href={this.state.notFoundPage}>Romantic </a>
                                 <a className="nav-menu__op-category" href={this.state.notFoundPage}>Sport </a>
                                 <a className="nav-menu__op-category" href={this.state.notFoundPage}>Toys </a>
-
                             </div>
 
                         </div>
@@ -349,11 +365,9 @@ class Header extends Component {
                     <a className="fas fa-shopping-bag">
                         <span>{this.props.cartNumber}</span>
                     </a>
-
                 </div>
 
                 <LoginAndDialog ref={this.loginPage} />
-
             </header>
         )
     }
