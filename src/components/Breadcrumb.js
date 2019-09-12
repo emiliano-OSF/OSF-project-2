@@ -7,7 +7,7 @@ export default class Breadcrumb extends Component {
 
     state = {
         //path: window.location.pathname
-        path: this.props.path
+        path: ""
     }
 
     /** method to navigate considering the element clicked **/
@@ -15,13 +15,21 @@ export default class Breadcrumb extends Component {
         window.location = e.target.id;
     }
 
+    componentDidMount(){
+
+    }
+
 
     /**  
      * examinate the path string and return the breadcrumb array mounted to create the track
     **/
     mountBreadcrumb() {
+        console.log("entrou")
         /** pliting and removing empty spaces of the array  **/
-        let paths = this.state.path.split('/').filter((e) => { return e });
+//        let paths = this.state.path.split('/').filter((e) => { return e });
+        let paths = this.props.path.split('/').filter((e) => { return e });
+        if(paths.length == 0) return
+        console.log(paths)
 
         return (
 
@@ -71,7 +79,7 @@ export default class Breadcrumb extends Component {
         console.log(this.props)
 
         /** don't render the component if the user is in the Home Page - HomeBody**/
-        if (this.state.path === "/home") return null
+        if (this.props.path === "/home") return null
         return (
             <div className="breadcrumb__container">
                 {this.state.path === '/home' ? null : this.mountBreadcrumb()}

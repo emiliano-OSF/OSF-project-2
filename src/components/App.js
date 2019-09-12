@@ -73,10 +73,14 @@ export default class App extends Component {
         return (
             <div className="app" >
                 <Header favNumber={this.state.favNumber} cartNumber={this.state.cartNumber} />
+                
+                {/** 
+                * Breadcrumb component geting the path tha the others components give
+                **/}
+                <Breadcrumb path={this.state.path} />
 
                 {/** Router component to make navigation on the component pages **/}
                 <BrowserRouter>
-                    <Breadcrumb path={this.state.path} />
                     <Switch>
                         <Route path="/" exact={true} component={() =>
                             <PageBody
@@ -87,6 +91,8 @@ export default class App extends Component {
                                 **/
                                 increaseFavNumber={this.increaseFavNumber}
                                 setCartNumber={this.setCartNumber}
+
+                                /** this props to get the route**/
                                 setPath={this.setPath}
                             />}
                         />
@@ -108,7 +114,9 @@ export default class App extends Component {
                             />}
                         />
                         <Route path="/home/category-landing-page" component={() =>
-                            <CategoryLandingPage />}
+                            <CategoryLandingPage
+                                setPath={this.setPath}
+                            />}
                         />
                         <Route path="/home/product-detailed-page" component={() =>
                             <ProductPage

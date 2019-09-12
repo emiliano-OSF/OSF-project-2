@@ -15,8 +15,9 @@ class CategoryLandingPage extends Component {
 
     /**  method that request the products values and sets on the state  **/
     componentDidMount() {
+        //console.log(this.props)
+        this.props.setPath(this.props.location.pathname)
         try {
-            this.props.setPath(this.props.location.pathname)
 
             fetch("https://my-json-server.typicode.com/emiliano-OSF/data-osf-products/products")
                 .then(res => res.json())
